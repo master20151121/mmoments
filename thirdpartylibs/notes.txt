@@ -1,0 +1,3 @@
+libofa -- made by musicdns, does audio finger-printing.
+expat -- c library for parsing xml, libofa wants it.
+curl -- tool for transferring data with url syntax?, libofa wants it.
