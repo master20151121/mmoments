@@ -1,0 +1,8 @@
+bin\Debug\World Hello.exe
+bin\Debug\World Hello.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\World_Hello.Interface.resources
+obj\Debug\World_Hello.Properties.Resources.resources
+obj\Debug\mmoments.csproj.GenerateResource.Cache
+obj\Debug\World Hello.exe
+obj\Debug\World Hello.pdb
