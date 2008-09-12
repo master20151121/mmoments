@@ -1,0 +1,9 @@
+Release is the compiled example from from libofa-0.9.3-win32.zip
+
+
+test 1.
+Method.
+Placing microphone from my headset ~20cm from my pc speakers.
+Play music through speakers, record with audicity.
+Results.
+wasnt able to get a match.
