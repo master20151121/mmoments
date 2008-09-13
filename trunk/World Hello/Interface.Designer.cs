@@ -56,7 +56,7 @@ namespace World_Hello
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Desktop;
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Location = new System.Drawing.Point(37, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(79, 32);
             this.button1.TabIndex = 0;
@@ -72,7 +72,7 @@ namespace World_Hello
             this.pictureBox1.Size = new System.Drawing.Size(240, 294);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
-            // Form1
+            // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -84,7 +84,7 @@ namespace World_Hello
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
-            this.Name = "Form1";
+            this.Name = "Interface";
             this.Text = "Musical Moments";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

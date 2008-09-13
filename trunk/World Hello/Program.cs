@@ -12,7 +12,7 @@ namespace World_Hello
         [MTAThread]
         static void Main()
         {
-            Application.Run(new Interface());
+            Application.Run(new SplashScreen());
         }
     }
 }
