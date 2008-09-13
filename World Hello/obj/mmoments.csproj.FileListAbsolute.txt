@@ -1,0 +1,9 @@
+E:\World Hello\World Hello\bin\Debug\World Hello.exe
+E:\World Hello\World Hello\bin\Debug\World Hello.pdb
+E:\World Hello\World Hello\obj\Debug\ResolveAssemblyReference.cache
+E:\World Hello\World Hello\obj\Debug\World_Hello.Interface.resources
+E:\World Hello\World Hello\obj\Debug\World_Hello.Properties.Resources.resources
+E:\World Hello\World Hello\obj\Debug\World_Hello.SplashScreen.resources
+E:\World Hello\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
+E:\World Hello\World Hello\obj\Debug\World Hello.exe
+E:\World Hello\World Hello\obj\Debug\World Hello.pdb
