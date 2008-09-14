@@ -7,3 +7,12 @@ E:\World Hello\World Hello\obj\Debug\World_Hello.SplashScreen.resources
 E:\World Hello\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
 E:\World Hello\World Hello\obj\Debug\World Hello.exe
 E:\World Hello\World Hello\obj\Debug\World Hello.pdb
+I:\COMP134Project\mmoments\World Hello\obj\Debug\ResolveAssemblyReference.cache
+I:\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.Interface.resources
+I:\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.SplashScreen.resources
+I:\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
+I:\COMP134Project\mmoments\World Hello\bin\Debug\mmoments.exe
+I:\COMP134Project\mmoments\World Hello\bin\Debug\mmoments.pdb
+I:\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.Properties.Resources.resources
+I:\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.exe
+I:\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.pdb
