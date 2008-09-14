@@ -41,11 +41,6 @@ namespace World_Hello
             }
 
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            MessageBox.Show("Hello World");
-        }
 
         private void menuItem1_Click(object sender, EventArgs e)
         {
@@ -55,6 +50,23 @@ namespace World_Hello
         private void menuItem2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void UI_recordBtn_Click(object sender, EventArgs e)
+        {
+            UI_stopBtn.Show();
+            UI_recordBtn.Hide();
+        }
+
+        private void UI_stopBtn_Click(object sender, EventArgs e)
+        {
+            UI_recordBtn.Show();
+            if (UI_progressBar.Value <= 90)
+            {
+                UI_progressBar.Value += 10;
+            }
+            UI_progressBar.Show();
+            UI_stopBtn.Hide();
         }
     }
 }
