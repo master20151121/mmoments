@@ -50,7 +50,7 @@ namespace World_Hello
             // UI_recordBtn
             // 
             this.UI_recordBtn.BackColor = System.Drawing.Color.LawnGreen;
-            this.UI_recordBtn.Location = new System.Drawing.Point(3, 3);
+            this.UI_recordBtn.Location = new System.Drawing.Point(3, 39);
             this.UI_recordBtn.Name = "UI_recordBtn";
             this.UI_recordBtn.Size = new System.Drawing.Size(70, 30);
             this.UI_recordBtn.TabIndex = 2;
@@ -65,10 +65,12 @@ namespace World_Hello
             // menuItem1
             // 
             this.menuItem1.Text = "Click Me";
+            this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
             // 
             // menuItem2
             // 
             this.menuItem2.Text = "Exit";
+            this.menuItem2.Click += new System.EventHandler(this.menuItem2_Click);
             // 
             // UI_progressBar
             // 
@@ -80,7 +82,7 @@ namespace World_Hello
             // UI_stopBtn
             // 
             this.UI_stopBtn.BackColor = System.Drawing.Color.Red;
-            this.UI_stopBtn.Location = new System.Drawing.Point(3, 3);
+            this.UI_stopBtn.Location = new System.Drawing.Point(3, 39);
             this.UI_stopBtn.Name = "UI_stopBtn";
             this.UI_stopBtn.Size = new System.Drawing.Size(72, 30);
             this.UI_stopBtn.TabIndex = 5;
