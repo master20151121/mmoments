@@ -2,5 +2,5 @@ libofa -- made by musicdns, does audio finger-printing. no noise tolerance.
 expat -- c library for parsing xml, libofa wants it.
 curl -- tool for transferring data with url syntax?, libofa wants it.
 
-libfooid -- audio finger printing, noise tolerant(readme says so).
+libfooid -- audio finger printing, noise tolerant(readme says so). to build need build release not debug!
 
