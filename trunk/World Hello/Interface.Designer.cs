@@ -29,28 +29,31 @@ namespace World_Hello
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Interface));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UI_background = new System.Windows.Forms.PictureBox();
             this.UI_recordBtn = new System.Windows.Forms.Button();
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
+            this.menuItem4 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.UI_progressBar = new System.Windows.Forms.ProgressBar();
             this.UI_stopBtn = new System.Windows.Forms.Button();
+            this.Recordtimer = new System.Windows.Forms.Timer();
+            this.UI_Statusbar = new System.Windows.Forms.StatusBar();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // UI_background
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 294);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.UI_background.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UI_background.Image = ((System.Drawing.Image)(resources.GetObject("UI_background.Image")));
+            this.UI_background.Location = new System.Drawing.Point(0, 0);
+            this.UI_background.Name = "UI_background";
+            this.UI_background.Size = new System.Drawing.Size(240, 268);
+            this.UI_background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // UI_recordBtn
             // 
             this.UI_recordBtn.BackColor = System.Drawing.Color.LawnGreen;
-            this.UI_recordBtn.Location = new System.Drawing.Point(3, 39);
+            this.UI_recordBtn.Location = new System.Drawing.Point(3, 3);
             this.UI_recordBtn.Name = "UI_recordBtn";
             this.UI_recordBtn.Size = new System.Drawing.Size(70, 30);
             this.UI_recordBtn.TabIndex = 2;
@@ -64,8 +67,14 @@ namespace World_Hello
             // 
             // menuItem1
             // 
-            this.menuItem1.Text = "Click Me";
+            this.menuItem1.MenuItems.Add(this.menuItem4);
+            this.menuItem1.Text = "Menu";
             this.menuItem1.Click += new System.EventHandler(this.menuItem1_Click);
+            // 
+            // menuItem4
+            // 
+            this.menuItem4.Text = "Record";
+            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
             // 
             // menuItem2
             // 
@@ -75,6 +84,7 @@ namespace World_Hello
             // UI_progressBar
             // 
             this.UI_progressBar.Location = new System.Drawing.Point(36, 139);
+            this.UI_progressBar.Maximum = 30;
             this.UI_progressBar.Name = "UI_progressBar";
             this.UI_progressBar.Size = new System.Drawing.Size(164, 20);
             this.UI_progressBar.Visible = false;
@@ -82,31 +92,42 @@ namespace World_Hello
             // UI_stopBtn
             // 
             this.UI_stopBtn.BackColor = System.Drawing.Color.Red;
-            this.UI_stopBtn.Location = new System.Drawing.Point(3, 39);
+            this.UI_stopBtn.Location = new System.Drawing.Point(3, 3);
             this.UI_stopBtn.Name = "UI_stopBtn";
-            this.UI_stopBtn.Size = new System.Drawing.Size(72, 30);
+            this.UI_stopBtn.Size = new System.Drawing.Size(70, 30);
             this.UI_stopBtn.TabIndex = 5;
             this.UI_stopBtn.Text = "Stop";
             this.UI_stopBtn.Visible = false;
             this.UI_stopBtn.Click += new System.EventHandler(this.UI_stopBtn_Click);
+            // 
+            // Recordtimer
+            // 
+            this.Recordtimer.Interval = 1000;
+            this.Recordtimer.Tick += new System.EventHandler(this.Recordtimer_Tick);
+            // 
+            // UI_Statusbar
+            // 
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
+            this.UI_Statusbar.Name = "UI_Statusbar";
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
+            this.UI_Statusbar.Visible = false;
             // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(240, 294);
+            this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.UI_Statusbar);
             this.Controls.Add(this.UI_stopBtn);
             this.Controls.Add(this.UI_progressBar);
             this.Controls.Add(this.UI_recordBtn);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.UI_background);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.Location = new System.Drawing.Point(0, 0);
             this.Menu = this.mainMenu1;
             this.Name = "Interface";
             this.Text = "Musical Moments";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
 
@@ -114,13 +135,16 @@ namespace World_Hello
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox UI_background;
         private System.Windows.Forms.Button UI_recordBtn;
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
         private System.Windows.Forms.MenuItem menuItem2;
         private System.Windows.Forms.ProgressBar UI_progressBar;
         private System.Windows.Forms.Button UI_stopBtn;
+        private System.Windows.Forms.MenuItem menuItem4;
+        private System.Windows.Forms.Timer Recordtimer;
+        private System.Windows.Forms.StatusBar UI_Statusbar;
     }
 }
 

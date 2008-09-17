@@ -44,7 +44,7 @@ namespace World_Hello
 
         private void menuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello World");
+
         }
 
         private void menuItem2_Click(object sender, EventArgs e)
@@ -69,5 +69,25 @@ namespace World_Hello
             UI_stopBtn.Hide();
         }
 
+        private void menuItem4_Click(object sender, EventArgs e)
+        {
+            UI_Statusbar.Text = "Recording";
+            UI_Statusbar.Show();
+            UI_progressBar.Show();
+            Recordtimer.Enabled = true;
+        }
+
+        private void Recordtimer_Tick(object sender, EventArgs e)
+        {
+            if (UI_progressBar.Value <= 29)
+            {
+                UI_progressBar.Value += 1;
+            }
+            UI_progressBar.Show();
+            if (UI_progressBar.Value == 29)
+            {
+                UI_Statusbar.Text = "Processing";
+            }
+        }
     }
 }
