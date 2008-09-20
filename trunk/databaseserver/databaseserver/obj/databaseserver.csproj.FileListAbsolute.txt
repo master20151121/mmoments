@@ -3,3 +3,5 @@ I:\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserve
 I:\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserver.pdb
 I:\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\databaseserver.exe
 I:\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\databaseserver.pdb
+I:\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserver.exe.config
+I:\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\System.Data.SQLite.dll
