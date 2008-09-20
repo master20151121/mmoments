@@ -15,8 +15,27 @@ namespace databaseserver
             Thread listener = new Thread(ListenForConnections);
             listener.Name = "ConnectionListener";
             listener.IsBackground = true;
-            listener.Start();
-            Console.In.ReadLine();
+            Console.WriteLine("Mobile Musical Moments Server");
+            Console.Write("Starting");
+            //listener.Start();
+            if (listener.ThreadState == ThreadState.Running)
+            {
+                Console.WriteLine("\r\n" + "Q: Quit");
+                string line;
+                while (true)
+                {
+                    line = Console.In.ReadLine().ToUpper();
+                    if (line == "Q")
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Listener could not be started");
+            }
+            Environment.Exit(0);
         }
         static void ListenForConnections()
         {
@@ -39,10 +58,12 @@ namespace databaseserver
             NetworkStream ns = new NetworkStream(s);
             BinaryWriter bw = new BinaryWriter(ns);
             BinaryReader br = new BinaryReader(ns);
+            StreamWriter sw = new StreamWriter(ns);
             StreamReader sr = new StreamReader(ns);
-            bw.Write("Hello I am " + Thread.CurrentThread.Name + '\n');
-            bw.Flush();
-            System.Diagnostics.Debug.WriteLine(sr.ReadLine());
+            sw.AutoFlush = true;
+            sw.WriteLine("Hello I am " + Thread.CurrentThread.Name);
+            Console.WriteLine(sr.ReadLine());
+            s.Close();
         }
     }
 }
