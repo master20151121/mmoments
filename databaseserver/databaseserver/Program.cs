@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Sockets;
@@ -7,6 +8,8 @@ using System.Data.SQLite;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace databaseserver
 {
@@ -90,9 +93,13 @@ namespace databaseserver
             {
                 sw.WriteLine("Challenge code accepted");
             }
-            sw.WriteLine("Song: All Summer Long");
-            sw.WriteLine("Artist: Kid Rock");
-            sw.WriteLine("Match: 98%");
+            SongList songs = new SongList();
+            songs.Add(new Song("All Summer Long", "Kid Rock", 98));
+            XmlSerializer ser = new XmlSerializer(typeof(SongList));
+            ser.Serialize(sw, songs);
+            //sw.WriteLine("Song: " + songs[0].Title);
+            //sw.WriteLine("Artist: " + songs[0].Artist);
+            //sw.WriteLine("Match: " + songs[0].Match);
             sw.WriteLine(".");
             s.Close();
         }
