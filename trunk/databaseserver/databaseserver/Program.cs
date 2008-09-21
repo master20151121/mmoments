@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Data.SQLite;
 using System.IO;
+using System.Security.Cryptography;
 using System.Threading;
 
 namespace databaseserver
@@ -70,8 +71,29 @@ namespace databaseserver
             StreamWriter sw = new StreamWriter(ns);
             StreamReader sr = new StreamReader(ns);
             sw.AutoFlush = true;
-            sw.WriteLine("Hello I am " + Thread.CurrentThread.Name);
-            Console.WriteLine(sr.ReadLine());
+            Random r = new Random();
+            string challengeCode = r.Next(9999999).ToString("X");
+            string responseCode = "";
+            for (int i = challengeCode.Length - 1; i >= 0; i--)
+            {
+                responseCode += challengeCode[i];
+            }
+            sw.WriteLine("Challenge: " + challengeCode);
+            string clientResponse = sr.ReadLine();
+            if (clientResponse != responseCode)
+            {
+                sw.WriteLine("Challenge failed. Connection terminated");
+                s.Close();
+                return;
+            }
+            else
+            {
+                sw.WriteLine("Challenge code accepted");
+            }
+            sw.WriteLine("Song: All Summer Long");
+            sw.WriteLine("Artist: Kid Rock");
+            sw.WriteLine("Match: 98%");
+            sw.WriteLine(".");
             s.Close();
         }
     }
