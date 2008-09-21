@@ -26,14 +26,12 @@ namespace databaseserver
             //        "`fingerprint` BLOB NOT NULL ," +
             //        "PRIMARY KEY (  `id` )" +
             //        ")", sqlcon);
-            System.Data.DataTable dataSet = new System.Data.DataTable();
+            songdatabaseDataSet dataSet = new songdatabaseDataSet();
             SQLiteCommand com = new SQLiteCommand("SELECT * FROM songs", sqlcon);
             SQLiteDataAdapter sqlda = new SQLiteDataAdapter();
             sqlda.SelectCommand = new SQLiteCommand("SELECT * FROM songs", sqlcon);
             sqlda.Fill(dataSet);
-            sqlcon.Close();
-            Console.WriteLine(dataSet.Columns.ToString());
-            
+            sqlcon.Close();            
 
             Thread listener = new Thread(ListenForConnections);
             listener.Name = "ConnectionListener";
@@ -101,6 +99,7 @@ namespace databaseserver
             songs.Add(new Song("All Summer Long", "Kid Rock", 98));
             XmlSerializer ser = new XmlSerializer(typeof(SongList));
             ser.Serialize(sw, songs);
+            sw.WriteLine();
             sw.WriteLine(".");
             s.Close();
         }
