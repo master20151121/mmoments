@@ -4,3 +4,7 @@ curl -- tool for transferring data with url syntax?, libofa wants it.
 
 libfooid -- audio finger printing, noise tolerant(readme says so). to build need build release not debug!
 
+what-tune. A console app that uses libfooid.
+
+
+win-what-tune. what-tune ported to windows using cygwin. Should run.
