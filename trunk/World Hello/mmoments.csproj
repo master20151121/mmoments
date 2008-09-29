@@ -60,6 +60,7 @@
     <Compile Include="Interface.Designer.cs">
       <DependentUpon>Interface.cs</DependentUpon>
     </Compile>
+    <Compile Include="Memory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interface.resx">
@@ -80,6 +81,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Recorder.cs" />
     <Compile Include="Song.cs" />
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -87,6 +89,8 @@
     <Compile Include="SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Wave.cs" />
+    <Compile Include="WaveIn.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="cool.PNG" />
