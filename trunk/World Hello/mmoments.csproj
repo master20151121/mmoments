@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connector.cs" />
     <Compile Include="Interface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +80,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Song.cs" />
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>

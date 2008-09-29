@@ -10,11 +10,12 @@ namespace World_Hello
 {
     public partial class Interface : Form
     {
+        private Connector conn = new Connector();
+        private SongList sl;
         public Interface()
         {
             InitializeComponent();
         }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == System.Windows.Forms.Keys.Up))
@@ -61,9 +62,9 @@ namespace World_Hello
         private void UI_stopBtn_Click(object sender, EventArgs e)
         {
             UI_recordBtn.Show();
-            if (UI_progressBar.Value <= 90)
+            if (UI_progressBar.Value <= 29)
             {
-                UI_progressBar.Value += 10;
+                UI_progressBar.Value += 1;
             }
             UI_progressBar.Show();
             UI_stopBtn.Hide();
@@ -87,7 +88,18 @@ namespace World_Hello
             if (UI_progressBar.Value == 29)
             {
                 UI_Statusbar.Text = "Processing";
+                if (conn.Connect(textBox1.Text) == true)
+                {
+                    UI_Statusbar.Text = "Connected to Server";
+                    sl = conn.SendFingerprint("ABC");
+                    UI_Statusbar.Text = sl.Songs[0].Title;
+                }
+                else
+                {
+                    UI_Statusbar.Text = "Connection to Server failed";
+                }
             }
         }
+
     }
 }

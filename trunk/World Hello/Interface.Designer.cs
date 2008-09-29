@@ -39,6 +39,7 @@ namespace World_Hello
             this.UI_stopBtn = new System.Windows.Forms.Button();
             this.Recordtimer = new System.Windows.Forms.Timer();
             this.UI_Statusbar = new System.Windows.Forms.StatusBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // UI_background
@@ -107,10 +108,18 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
             this.UI_Statusbar.Visible = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.Text = "textBox1";
             // 
             // Interface
             // 
@@ -118,6 +127,7 @@ namespace World_Hello
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.UI_Statusbar);
             this.Controls.Add(this.UI_stopBtn);
             this.Controls.Add(this.UI_progressBar);
@@ -145,6 +155,7 @@ namespace World_Hello
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.Timer Recordtimer;
         private System.Windows.Forms.StatusBar UI_Statusbar;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
