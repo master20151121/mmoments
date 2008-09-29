@@ -95,6 +95,7 @@ namespace databaseserver
             DataTable dt = db.GetData("SELECT * FROM songs WHERE fingerprint='" + fingerprint + "'");
             if (dt.Rows.Count > 0)
             {
+                sw.WriteLine("Matches");
                 songs.Add(new Song(dt.Rows[0]["Title"].ToString(), dt.Rows[0]["Artist"].ToString(), 98));
                 XmlSerializer ser = new XmlSerializer(typeof(SongList));
                 ser.Serialize(sw, songs);
