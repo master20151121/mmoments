@@ -5,6 +5,7 @@ using System.Text;
 using System.Net.Sockets;
 using System.Net;
 using System.Data.SQLite;
+using System.Data;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading;
@@ -15,10 +16,10 @@ namespace databaseserver
 {
     class Program
     {
+        static Database db;
         static void Main(string[] args)
         {
-            SQLiteConnection sqlcon = new SQLiteConnection(@"data source=I:\COMP134Project\mmoments\databaseserver\songdatabase.mmd");
-            sqlcon.Open();
+            db = new Database();
             //SQLiteCommand com = new SQLiteCommand("CREATE TABLE `songs` (" + 
             //        "`id` INT NOT NULL ," +
             //        "`title` CHAR( 32 ) NOT NULL ," +
@@ -26,12 +27,6 @@ namespace databaseserver
             //        "`fingerprint` BLOB NOT NULL ," +
             //        "PRIMARY KEY (  `id` )" +
             //        ")", sqlcon);
-            songdatabaseDataSet dataSet = new songdatabaseDataSet();
-            SQLiteCommand com = new SQLiteCommand("SELECT * FROM songs", sqlcon);
-            SQLiteDataAdapter sqlda = new SQLiteDataAdapter();
-            sqlda.SelectCommand = new SQLiteCommand("SELECT * FROM songs", sqlcon);
-            sqlda.Fill(dataSet);
-            sqlcon.Close();            
 
             Thread listener = new Thread(ListenForConnections);
             listener.Name = "ConnectionListener";
@@ -97,9 +92,17 @@ namespace databaseserver
             }
             string fingerprint = sr.ReadLine();
             SongList songs = new SongList();
-            songs.Add(new Song("All Summer Long", "Kid Rock", 98));
-            XmlSerializer ser = new XmlSerializer(typeof(SongList));
-            ser.Serialize(sw, songs);
+            DataTable dt = db.GetData("SELECT * FROM songs WHERE fingerprint='" + fingerprint + "'");
+            if (dt.Rows.Count > 0)
+            {
+                songs.Add(new Song(dt.Rows[0]["Title"].ToString(), dt.Rows[0]["Artist"].ToString(), 98));
+                XmlSerializer ser = new XmlSerializer(typeof(SongList));
+                ser.Serialize(sw, songs);
+            }
+            else
+            {
+                sw.WriteLine("No matches");
+            }
             sw.Close();
             sr.Close();
             s.Close();
