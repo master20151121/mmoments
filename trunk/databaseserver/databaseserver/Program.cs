@@ -95,12 +95,13 @@ namespace databaseserver
             {
                 sw.WriteLine("Challenge code accepted");
             }
+            string fingerprint = sr.ReadLine();
             SongList songs = new SongList();
             songs.Add(new Song("All Summer Long", "Kid Rock", 98));
             XmlSerializer ser = new XmlSerializer(typeof(SongList));
             ser.Serialize(sw, songs);
-            sw.WriteLine();
-            sw.WriteLine(".");
+            sw.Close();
+            sr.Close();
             s.Close();
         }
     }
