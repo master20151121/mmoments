@@ -58,10 +58,17 @@ namespace World_Hello
         public SongList SendFingerprint(string fingerprint)
         {
             sw.WriteLine(fingerprint);
-            SongList songs;
-            XmlSerializer ser = new XmlSerializer(typeof(SongList));
-            songs = (SongList)ser.Deserialize(sr);
-            return songs;
+            if (sr.ReadLine() == "Matches")
+            {
+                SongList songs;
+                XmlSerializer ser = new XmlSerializer(typeof(SongList));
+                songs = (SongList)ser.Deserialize(sr);
+                return songs;
+            }
+            else
+            {
+                return new SongList();
+            }
         }
     }
 }
