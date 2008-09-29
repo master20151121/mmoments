@@ -25,3 +25,12 @@ G:\World Hello\World Hello\obj\Debug\World_Hello.SplashScreen.resources
 G:\World Hello\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
 G:\World Hello\World Hello\obj\Debug\mmoments.exe
 G:\World Hello\World Hello\obj\Debug\mmoments.pdb
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\bin\Debug\mmoments.exe
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\bin\Debug\mmoments.pdb
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\World_Hello.Interface.resources
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.Properties.Resources.resources
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\World_Hello.SplashScreen.resources
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.exe
+C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.pdb
