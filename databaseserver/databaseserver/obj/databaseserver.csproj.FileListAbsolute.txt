@@ -5,3 +5,15 @@ I:\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\databaseserve
 I:\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\databaseserver.pdb
 I:\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserver.exe.config
 I:\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\System.Data.SQLite.dll
+F:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.exe.config
+F:\World Hello\databaseserver\databaseserver\obj\Debug\databaseserver.exe
+F:\World Hello\databaseserver\databaseserver\obj\Debug\databaseserver.pdb
+F:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.exe
+F:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.pdb
+F:\World Hello\databaseserver\databaseserver\obj\Debug\ResolveAssemblyReference.cache
+E:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.exe.config
+E:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.exe
+E:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.pdb
+E:\World Hello\databaseserver\databaseserver\obj\Debug\ResolveAssemblyReference.cache
+E:\World Hello\databaseserver\databaseserver\obj\Debug\databaseserver.exe
+E:\World Hello\databaseserver\databaseserver\obj\Debug\databaseserver.pdb

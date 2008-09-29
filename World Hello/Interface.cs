@@ -88,7 +88,7 @@ namespace World_Hello
             if (UI_progressBar.Value == 29)
             {
                 UI_Statusbar.Text = "Processing";
-                if (conn.Connect(textBox1.Text) == true)
+                if (conn.Connect("127.0.0.1") == true)
                 {
                     UI_Statusbar.Text = "Connected to Server";
                     sl = conn.SendFingerprint("ABC");
