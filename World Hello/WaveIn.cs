@@ -94,14 +94,14 @@ namespace AudioRecorder
 				// format is supported
 				WAVEINCAPS caps = new WAVEINCAPS();
 				waveInGetDevCaps(0, caps, caps.Size);
-				if ((caps.dwFormats & Wave.WAVE_FORMAT_1S08) == 0)
+				if ((caps.dwFormats & Wave.WAVE_FORMAT_1S16) == 0)
 					return Wave.MMSYSERR.NOTSUPPORTED;
 
 				// Initialize a WAVEFORMATEX structure specifying the desired
 				// format
 				m_wfmt = new Wave.WAVEFORMATEX();
 				m_wfmt.wFormatTag = Wave.WAVEHDR.WAVE_FORMAT_PCM;
-				m_wfmt.wBitsPerSample = 8;
+				m_wfmt.wBitsPerSample = 16;
 				m_wfmt.nChannels = 2;
 				m_wfmt.nSamplesPerSec = 11025;
 				m_wfmt.nAvgBytesPerSec = (uint)(m_wfmt.nSamplesPerSec * m_wfmt.nChannels * (m_wfmt.wBitsPerSample / 8));
