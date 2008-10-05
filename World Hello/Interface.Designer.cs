@@ -39,6 +39,13 @@ namespace World_Hello
             this.UI_stopBtn = new System.Windows.Forms.Button();
             this.Recordtimer = new System.Windows.Forms.Timer();
             this.UI_Statusbar = new System.Windows.Forms.StatusBar();
+            this.serverAddress = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.resultLabelTitle = new System.Windows.Forms.Label();
+            this.resultLabelArtist = new System.Windows.Forms.Label();
+            this.hideResults = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UI_background
@@ -107,10 +114,61 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
             this.UI_Statusbar.Visible = false;
+            // 
+            // serverAddress
+            // 
+            this.serverAddress.Location = new System.Drawing.Point(79, 219);
+            this.serverAddress.Name = "serverAddress";
+            this.serverAddress.Size = new System.Drawing.Size(139, 21);
+            this.serverAddress.TabIndex = 8;
+            this.serverAddress.Text = "127.0.0.1";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(18, 219);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.Text = "SERVER";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.hideResults);
+            this.panel1.Controls.Add(this.resultLabelArtist);
+            this.panel1.Controls.Add(this.resultLabelTitle);
+            this.panel1.Location = new System.Drawing.Point(36, 61);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(164, 72);
+            this.panel1.Visible = false;
+            // 
+            // resultLabelTitle
+            // 
+            this.resultLabelTitle.Location = new System.Drawing.Point(0, 0);
+            this.resultLabelTitle.Name = "resultLabelTitle";
+            this.resultLabelTitle.Size = new System.Drawing.Size(161, 20);
+            this.resultLabelTitle.Text = "Title: ";
+            this.resultLabelTitle.Visible = false;
+            // 
+            // resultLabelArtist
+            // 
+            this.resultLabelArtist.Location = new System.Drawing.Point(0, 20);
+            this.resultLabelArtist.Name = "resultLabelArtist";
+            this.resultLabelArtist.Size = new System.Drawing.Size(164, 20);
+            this.resultLabelArtist.Text = "Artist: ";
+            this.resultLabelArtist.Visible = false;
+            // 
+            // hideResults
+            // 
+            this.hideResults.Location = new System.Drawing.Point(43, 49);
+            this.hideResults.Name = "hideResults";
+            this.hideResults.Size = new System.Drawing.Size(72, 20);
+            this.hideResults.TabIndex = 3;
+            this.hideResults.Text = "OK";
+            this.hideResults.Visible = false;
+            this.hideResults.Click += new System.EventHandler(this.hideResults_Click);
             // 
             // Interface
             // 
@@ -118,6 +176,9 @@ namespace World_Hello
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.serverAddress);
             this.Controls.Add(this.UI_Statusbar);
             this.Controls.Add(this.UI_stopBtn);
             this.Controls.Add(this.UI_progressBar);
@@ -129,6 +190,7 @@ namespace World_Hello
             this.Name = "Interface";
             this.Text = "Musical Moments";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -145,6 +207,12 @@ namespace World_Hello
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.Timer Recordtimer;
         private System.Windows.Forms.StatusBar UI_Statusbar;
+        private System.Windows.Forms.TextBox serverAddress;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button hideResults;
+        private System.Windows.Forms.Label resultLabelArtist;
+        private System.Windows.Forms.Label resultLabelTitle;
     }
 }
 
