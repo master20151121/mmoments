@@ -20,7 +20,7 @@ namespace World_Hello
         {
             //try
             //{
-            client = new TcpClient("169.254.238.174", 345);
+            client = new TcpClient(IP, 345);
             //}
             //catch (Exception e)
             //{

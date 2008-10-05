@@ -88,17 +88,35 @@ namespace World_Hello
             if (UI_progressBar.Value == 29)
             {
                 UI_Statusbar.Text = "Processing";
-                if (conn.Connect("127.0.0.1") == true)
+                if (conn.Connect(serverAddress.Text) == true)
                 {
                     UI_Statusbar.Text = "Connected to Server";
                     sl = conn.SendFingerprint("ABC");
-                    UI_Statusbar.Text = sl.Songs[0].Title;
+                    panel1.Show();
+                    hideResults.Show();
+                    resultLabelTitle.Show();
+                    resultLabelArtist.Show();
+                    resultLabelTitle.Text += sl.Songs[0].Title;
+                    resultLabelArtist.Text += sl.Songs[0].Artist;
+                    Recordtimer.Enabled = false;
                 }
                 else
                 {
                     UI_Statusbar.Text = "Connection to Server failed";
                 }
             }
+        }
+
+        private void hideResults_Click(object sender, EventArgs e)
+        {
+            UI_progressBar.Hide();
+            UI_progressBar.Value = 0;
+            resultLabelTitle.Hide();
+            resultLabelTitle.Text = "Title: ";
+            resultLabelArtist.Hide();
+            resultLabelArtist.Text = "Title: ";
+            hideResults.Hide();
+            panel1.Hide();
         }
 
     }
