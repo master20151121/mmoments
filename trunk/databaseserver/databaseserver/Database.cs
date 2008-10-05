@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Data.SQLite;
 using System.Data;
 using System.Text;
@@ -13,8 +14,9 @@ namespace databaseserver
         private SQLiteDataAdapter sqlda_;
         private DataSet DS_ = new DataSet();
         private DataTable DT_ = new DataTable();
+        private string dataSource = Directory.GetCurrentDirectory() + @"\songdatabase.mmd";
         private void Connect() {
-           sqlcon_ = new SQLiteConnection(@"data source=I:\COMP134Project\mmoments\databaseserver\songdatabase.mmd");
+            sqlcon_ = new SQLiteConnection(@"data source=" + dataSource);
         }
         public void ExecuteQuery(string txtQuery)
         {
