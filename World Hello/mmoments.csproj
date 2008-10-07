@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="calcfinger.cs" />
     <Compile Include="Connector.cs" />
     <Compile Include="Interface.cs">
       <SubType>Form</SubType>
@@ -91,6 +92,7 @@
     </Compile>
     <Compile Include="Wave.cs" />
     <Compile Include="WaveIn.cs" />
+    <Compile Include="wavesimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="cool.PNG" />
