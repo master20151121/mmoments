@@ -10,7 +10,7 @@ class calcfinger
 
     //secret varibles go here
 
-    public string start(string wavinurl)
+    static public string generate(string wavinurl)
     {
 #if verbose
         Console.Write("starting calcfinger on {0}", wavinurl);
