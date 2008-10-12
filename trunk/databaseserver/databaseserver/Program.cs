@@ -102,10 +102,10 @@ namespace databaseserver
          	      songs.Add(new Song(dt.Rows[i]["Title"].ToString(), dt.Rows[i]["Artist"].ToString(), c));
          	}
             }
-            else
+            /*else
             {
                 sw.WriteLine("No matches");
-            }
+            }*/
             XmlSerializer ser = new XmlSerializer(typeof(SongList));
             ser.Serialize(sw, songs);
             sw.Close();
