@@ -14,19 +14,19 @@ namespace databaseserver
         static int BANDS = 24;
         static int NOTEWORTHY = 3; // for finding start. less is more strict.
 
-        static public int files(string fileA, string fileB)
+        static public int files(string fileA, string fileB) //returns a percentage of matching frames.
+        {
+            //secret code
+            return 0; 
+        }
+
+        static public int strings(string fingerA, string fingerB)//returns a percentage of matching frames.
         {
             //secret code
             return 0;
         }
 
-        static public int strings(string fingerA, string fingerB)
-        {
-            //secret code
-            return 0;
-        }
-
-        static public int arrays(string[] f1, string[] f2)
+        static public int arrays(string[] f1, string[] f2)//returns a percentage of matching frames.
         {
             //secret code
             return 0;
