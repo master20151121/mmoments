@@ -16,17 +16,22 @@ namespace databaseserver
 
         static public int files(string fileA, string fileB)
         {
+            //secret code
             return 0;
         }
 
         static public int strings(string fingerA, string fingerB)
         {
+            //secret code
             return 0;
         }
 
         static public int arrays(string[] f1, string[] f2)
         {
+            //secret code
             return 0;
         }
+
+        //secret code
     }
 }
