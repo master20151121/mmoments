@@ -11,8 +11,9 @@ namespace mmoments
     static byte[] RIFF;
         static byte[] FMT;
         static byte[] DATA_HEADER;
-        static byte[] DATA;
-        //static ushort[] DATA;
+        static BinaryReader br;
+
+        
         
         public wavesimple(string file_url)
         {            
@@ -25,7 +26,7 @@ namespace mmoments
                 
                 FileStream fs = fi.Open(FileMode.Open);
                 
-                BinaryReader br = new BinaryReader(fs);
+                br = new BinaryReader(fs);
 
                 RIFF = br.ReadBytes(12);
 
@@ -33,19 +34,19 @@ namespace mmoments
                 
                 DATA_HEADER = br.ReadBytes(8);
                 
-                DATA = br.ReadBytes(Convert.ToInt32(filesize - 44));
+                //DATA = br.ReadBytes(Convert.ToInt32(filesize - 44));
 
                 //Console.WriteLine("file possition {0}", fs.Position.ToString());
 
                 Console.WriteLine("loaded wav");
 
-                if (fs.Position != Convert.ToInt32(filesize)) // simple test. shouldnt ever happen, unless my math suddenly breaks.
-                {
-                    Console.WriteLine(" fs.position != filesize !!!");
-                    //Environment.Exit(1); //strange cant be done in this project.                
-                }
+                //if (fs.Position != Convert.ToInt32(filesize)) // simple test. shouldnt ever happen, unless my math suddenly breaks.
+                //{
+                //    Console.WriteLine(" fs.position != filesize !!!");
+                //    //Environment.Exit(1); //strange cant be done in this project.                
+                //}
 
-                fs.Close();                
+                //fs.Close();                
                 
             }
             catch (FileNotFoundException)
@@ -92,20 +93,9 @@ namespace mmoments
             return bps;
         }
 
-        static int read_count = 0;
-
         public int read(ref byte[] ba)
         {
-            try
-            {
-                for (int i = 0; i < ba.Length; i++)
-                {
-                    ba[i] = DATA[i + read_count];
-                }
-            }
-            catch (IndexOutOfRangeException)
-            { return 0; } //endoffile.
-            read_count += ba.Length;
+            ba = br.ReadBytes(4);
             return ba.Length;
         }
     }
