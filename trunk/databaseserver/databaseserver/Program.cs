@@ -92,18 +92,22 @@ namespace databaseserver
             }
             string fingerprint = sr.ReadLine();
             SongList songs = new SongList();
-            DataTable dt = db.GetData("SELECT * FROM songs WHERE fingerprint='" + fingerprint + "'");
-            if (dt.Rows.Count > 0)
+            DataTable dt = db.GetData("SELECT * FROM songs");
+            for(int i=0; i < dt.Rows.Count; i++)
             {
-                sw.WriteLine("Matches");
-                songs.Add(new Song(dt.Rows[0]["Title"].ToString(), dt.Rows[0]["Artist"].ToString(), 98));
-                XmlSerializer ser = new XmlSerializer(typeof(SongList));
-                ser.Serialize(sw, songs);
+                //sw.WriteLine("Matches");
+ 		int c = compare(dt.Rows[i]["Fingerprint"].ToString(), fingerprint)
+        	if (c > 50)
+         	{
+         	      songs.Add(new Song(dt.Rows[i]["Title"].ToString(), dt.Rows[i]["Artist"].ToString(), c));
+         	}
             }
             else
             {
                 sw.WriteLine("No matches");
             }
+            XmlSerializer ser = new XmlSerializer(typeof(SongList));
+            ser.Serialize(sw, songs);
             sw.Close();
             sr.Close();
             s.Close();
