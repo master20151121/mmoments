@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 using System.Threading;
 
-namespace AudioRecorder
+namespace World_Hello
 {
     class Recorder
     {
@@ -22,7 +22,7 @@ namespace AudioRecorder
                     //ERROR: No valid sound drivers detected
                 }
 
-                if (Wave.MMSYSERR.NOERROR != wi.Preload(10000, 256 * 1024))
+                if (Wave.MMSYSERR.NOERROR != wi.Preload(30000, 256 * 1024))
                 {
                     //ERROR: Failed to preload buffers
                 }
@@ -33,7 +33,7 @@ namespace AudioRecorder
                 }
 
                 
-                Thread.Sleep(10000);
+                Thread.Sleep(30000);
 
                 wi.Stop();
 
@@ -48,10 +48,10 @@ namespace AudioRecorder
 
                 return fileName;
             }
-            catch
+            catch (Exception e)
             {
                 //failed to record
-                return "ERROR";
+                return "ERROR " + e.Message;
             }
         }
     }

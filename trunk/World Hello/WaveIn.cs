@@ -7,7 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
 
-namespace AudioRecorder
+namespace World_Hello
 {
 	/// <summary>
 	/// Encapsulates Waveform Audio Interface recording functions and provides a simple
