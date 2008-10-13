@@ -8,6 +8,7 @@ using System.IO;
 
 namespace databaseserver
 {
+    // this class contains a bunch of public methods that can be used to get the percentage in different ways.
     class fingerprintcompare
     {
         static int TIMESECTION_WEIGHT = 5; //how many mis-matching bands counts as a matching frame.

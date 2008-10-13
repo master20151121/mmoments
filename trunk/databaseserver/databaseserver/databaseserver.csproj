@@ -37,6 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="calcfinger.cs" />
     <Compile Include="Connector.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="fingerprintcompare.cs" />
@@ -53,6 +54,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>songdatabaseDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="wavesimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
