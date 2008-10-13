@@ -35,6 +35,9 @@ namespace databaseserver
             Console.Write("Starting");
             listener.Start();
             Console.WriteLine("\r\n" + "Q: Quit");
+
+            Console.WriteLine("\"i\" for insert song.");
+
             string line;
             while (true)
             {
@@ -43,6 +46,8 @@ namespace databaseserver
                 {
                     Environment.Exit(0);
                 }
+                if (line == "I")
+                { addsong(); }
             }
         }
         static void ListenForConnections()
@@ -96,7 +101,7 @@ namespace databaseserver
             for(int i=0; i < dt.Rows.Count; i++)
             {
                 //sw.WriteLine("Matches");
- 		int c = compare(dt.Rows[i]["Fingerprint"].ToString(), fingerprint)
+                int c = fingerprintcompare.strings(dt.Rows[i]["Fingerprint"].ToString(), fingerprint); // i think this is what you want.
         	if (c > 50)
          	{
          	      songs.Add(new Song(dt.Rows[i]["Title"].ToString(), dt.Rows[i]["Artist"].ToString(), c));
@@ -111,6 +116,32 @@ namespace databaseserver
             sw.Close();
             sr.Close();
             s.Close();
+        }
+
+        static void addsong()
+        {
+            string ans = getans("Procced with adding song? y/n");
+            if ((ans == "y") || (ans == "yes"))
+            {
+                string fileurl = getans("file url"); // might handle true cascaded directories.
+                string fingerprint = calcfinger.generate(fileurl);
+                string artest = getans("artest?");
+                string song = getans("song?");
+                //could get more info, but not important now.
+
+                // need to store this info somewhere.
+                Console.WriteLine("song added");
+            }
+            else
+            {
+                Console.WriteLine("not adding song");
+            }
+        }
+
+        static string getans(string msg)
+        { // going to do this lots so..
+            Console.WriteLine(msg);
+            return Console.ReadLine();
         }
     }
 }
