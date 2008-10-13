@@ -73,6 +73,14 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="SongItem.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SongItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SongList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SongList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SplashScreen.cs</DependentUpon>
@@ -84,6 +92,18 @@
     </Compile>
     <Compile Include="Recorder.cs" />
     <Compile Include="Song.cs" />
+    <Compile Include="SongItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SongItem.Designer.cs">
+      <DependentUpon>SongItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SongList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SongList.Designer.cs">
+      <DependentUpon>SongList.cs</DependentUpon>
+    </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>

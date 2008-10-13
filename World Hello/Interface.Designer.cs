@@ -42,9 +42,9 @@ namespace World_Hello
             this.serverAddress = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.resultLabelTitle = new System.Windows.Forms.Label();
-            this.resultLabelArtist = new System.Windows.Forms.Label();
             this.hideResults = new System.Windows.Forms.Button();
+            this.resultLabelArtist = new System.Windows.Forms.Label();
+            this.resultLabelTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +54,7 @@ namespace World_Hello
             this.UI_background.Image = ((System.Drawing.Image)(resources.GetObject("UI_background.Image")));
             this.UI_background.Location = new System.Drawing.Point(0, 0);
             this.UI_background.Name = "UI_background";
-            this.UI_background.Size = new System.Drawing.Size(240, 268);
+            this.UI_background.Size = new System.Drawing.Size(227, 270);
             this.UI_background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // UI_recordBtn
@@ -81,7 +81,7 @@ namespace World_Hello
             // menuItem4
             // 
             this.menuItem4.Text = "Record";
-            this.menuItem4.Click += new System.EventHandler(this.menuItem4_Click);
+            this.menuItem4.Click += new System.EventHandler(this.UI_recordBtn_Click);
             // 
             // menuItem2
             // 
@@ -114,16 +114,16 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 244);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
+            this.UI_Statusbar.Size = new System.Drawing.Size(227, 26);
             this.UI_Statusbar.Visible = false;
             // 
             // serverAddress
             // 
             this.serverAddress.Location = new System.Drawing.Point(79, 219);
             this.serverAddress.Name = "serverAddress";
-            this.serverAddress.Size = new System.Drawing.Size(139, 21);
+            this.serverAddress.Size = new System.Drawing.Size(139, 25);
             this.serverAddress.TabIndex = 8;
             this.serverAddress.Text = "127.0.0.1";
             // 
@@ -144,22 +144,6 @@ namespace World_Hello
             this.panel1.Size = new System.Drawing.Size(164, 72);
             this.panel1.Visible = false;
             // 
-            // resultLabelTitle
-            // 
-            this.resultLabelTitle.Location = new System.Drawing.Point(0, 0);
-            this.resultLabelTitle.Name = "resultLabelTitle";
-            this.resultLabelTitle.Size = new System.Drawing.Size(161, 20);
-            this.resultLabelTitle.Text = "Title: ";
-            this.resultLabelTitle.Visible = false;
-            // 
-            // resultLabelArtist
-            // 
-            this.resultLabelArtist.Location = new System.Drawing.Point(0, 20);
-            this.resultLabelArtist.Name = "resultLabelArtist";
-            this.resultLabelArtist.Size = new System.Drawing.Size(164, 20);
-            this.resultLabelArtist.Text = "Artist: ";
-            this.resultLabelArtist.Visible = false;
-            // 
             // hideResults
             // 
             this.hideResults.Location = new System.Drawing.Point(43, 49);
@@ -169,6 +153,22 @@ namespace World_Hello
             this.hideResults.Text = "OK";
             this.hideResults.Visible = false;
             this.hideResults.Click += new System.EventHandler(this.hideResults_Click);
+            // 
+            // resultLabelArtist
+            // 
+            this.resultLabelArtist.Location = new System.Drawing.Point(0, 20);
+            this.resultLabelArtist.Name = "resultLabelArtist";
+            this.resultLabelArtist.Size = new System.Drawing.Size(164, 20);
+            this.resultLabelArtist.Text = "Artist: ";
+            this.resultLabelArtist.Visible = false;
+            // 
+            // resultLabelTitle
+            // 
+            this.resultLabelTitle.Location = new System.Drawing.Point(0, 0);
+            this.resultLabelTitle.Name = "resultLabelTitle";
+            this.resultLabelTitle.Size = new System.Drawing.Size(161, 20);
+            this.resultLabelTitle.Text = "Title: ";
+            this.resultLabelTitle.Visible = false;
             // 
             // Interface
             // 

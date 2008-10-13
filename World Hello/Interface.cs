@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace World_Hello
 {
     public partial class Interface : Form
     {
+        private String FilePath;
         private Connector conn = new Connector();
         private SongList sl;
         public Interface()
@@ -52,30 +54,29 @@ namespace World_Hello
         {
             Application.Exit();
         }
-
+        private void link_RecordViaThread()
+        {
+            FilePath = Recorder.Record();
+            MessageBox.Show(FilePath);
+        }
         private void UI_recordBtn_Click(object sender, EventArgs e)
         {
             UI_stopBtn.Show();
-            UI_recordBtn.Hide();
+            UI_Statusbar.Text = "Recording";
+            UI_Statusbar.Show();
+            UI_progressBar.Show();
+            Thread record = new Thread(link_RecordViaThread);
+            record.Name = "recorder";
+            record.IsBackground = true;
+            record.Start();
+            Recordtimer.Enabled = true;
         }
 
         private void UI_stopBtn_Click(object sender, EventArgs e)
         {
             UI_recordBtn.Show();
-            if (UI_progressBar.Value <= 29)
-            {
-                UI_progressBar.Value += 1;
-            }
-            UI_progressBar.Show();
             UI_stopBtn.Hide();
-        }
 
-        private void menuItem4_Click(object sender, EventArgs e)
-        {
-            UI_Statusbar.Text = "Recording";
-            UI_Statusbar.Show();
-            UI_progressBar.Show();
-            Recordtimer.Enabled = true;
         }
 
         private void Recordtimer_Tick(object sender, EventArgs e)
@@ -87,11 +88,12 @@ namespace World_Hello
             UI_progressBar.Show();
             if (UI_progressBar.Value == 29)
             {
+                string fingerprint = calcfinger.generate(FilePath);
                 UI_Statusbar.Text = "Processing";
                 if (conn.Connect(serverAddress.Text) == true)
                 {
                     UI_Statusbar.Text = "Connected to Server";
-                    sl = conn.SendFingerprint("ABC");
+                    sl = conn.SendFingerprint(fingerprint);
                     panel1.Show();
                     hideResults.Show();
                     resultLabelTitle.Show();
@@ -99,6 +101,10 @@ namespace World_Hello
                     resultLabelTitle.Text += sl.Songs[0].Title;
                     resultLabelArtist.Text += sl.Songs[0].Artist;
                     Recordtimer.Enabled = false;
+                    //SongList UI_SongList = new SongList();
+                    //UI_SongList.Show();
+                    //this.Hide();
+                    //GC.Collect();
                 }
                 else
                 {

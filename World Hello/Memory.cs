@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace AudioRecorder
+namespace World_Hello
 {
 	/// <summary>
 	/// Contains methods for allocating and freeing memory.

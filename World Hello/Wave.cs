@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
-namespace AudioRecorder
+namespace World_Hello
 {
 	/// <summary>
 	/// Encapsulates Wave file properties used internally be WaveIn and WaveOut.

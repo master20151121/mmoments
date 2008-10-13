@@ -34,3 +34,14 @@ C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\D
 C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
 C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.exe
 C:\Users\AUHSOJ\Documents\Visual Studio 2005\Projects\mmoments\World Hello\obj\Debug\mmoments.pdb
+E:\134 Project\World Hello\World Hello\bin\Debug\mmoments.exe
+E:\134 Project\World Hello\World Hello\bin\Debug\mmoments.pdb
+E:\134 Project\World Hello\World Hello\obj\Debug\ResolveAssemblyReference.cache
+E:\134 Project\World Hello\World Hello\obj\Debug\World_Hello.Interface.resources
+E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.Properties.Resources.resources
+E:\134 Project\World Hello\World Hello\obj\Debug\World_Hello.SplashScreen.resources
+E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
+E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.exe
+E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.pdb
+E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.SongItem.resources
+E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.SongList.resources
