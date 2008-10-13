@@ -103,7 +103,7 @@ namespace World_Hello
 				m_wfmt.wFormatTag = Wave.WAVEHDR.WAVE_FORMAT_PCM;
 				m_wfmt.wBitsPerSample = 16;
 				m_wfmt.nChannels = 2;
-				m_wfmt.nSamplesPerSec = 11025;
+                m_wfmt.nSamplesPerSec = 44110;//11025;
 				m_wfmt.nAvgBytesPerSec = (uint)(m_wfmt.nSamplesPerSec * m_wfmt.nChannels * (m_wfmt.wBitsPerSample / 8));
 				m_wfmt.nBlockAlign = (ushort)(m_wfmt.wBitsPerSample * m_wfmt.nChannels / 8);
 
