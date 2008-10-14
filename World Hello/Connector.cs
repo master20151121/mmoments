@@ -18,14 +18,14 @@ namespace World_Hello
 
         public bool Connect(string IP)
         {
-            //try
-            //{
+            try
+            {
             client = new TcpClient(IP, 345);
-            //}
-            //catch (Exception e)
-            //{
-            //    return false;
-            //}
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
             if (client.Client.Connected)
             {
                 ns = client.GetStream();

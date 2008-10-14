@@ -16,7 +16,7 @@ class calcfinger
         Console.Write("starting calcfinger on {0}", wavinurl);
 #endif
 
-        // this is where to plug in secret code.
+        // this is where to plug in secret code. 
 
 
         return "000000000000000000000000";// fake fingerprint
