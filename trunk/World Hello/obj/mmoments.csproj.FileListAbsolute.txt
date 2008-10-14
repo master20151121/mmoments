@@ -44,4 +44,4 @@ E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.csproj.GenerateResourc
 E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.exe
 E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.pdb
 E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.SongItem.resources
-E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.SongList.resources
+E:\134 Project\World Hello\World Hello\obj\Debug\World_Hello.UI_SongList.resources

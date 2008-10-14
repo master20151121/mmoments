@@ -90,19 +90,24 @@ namespace World_Hello
             {
                 string fingerprint = calcfinger.generate(FilePath);
                 UI_Statusbar.Text = "Processing";
-                if (conn.Connect(serverAddress.Text) == true)
+                if (conn.Connect(serverAddress.Text) == false)
                 {
                     UI_Statusbar.Text = "Connected to Server";
-                    sl = conn.SendFingerprint(fingerprint);
+                    SongList sl = new SongList();
+                    sl.Add(new Song("Hard", "Gay", 95));
+                    //sl = conn.SendFingerprint(fingerprint);
+                    UI_SongList uiSongList = new UI_SongList();
+                    uiSongList.Show();
+                    uiSongList.SL = sl;
                     panel1.Show();
-                    hideResults.Show();
-                    resultLabelTitle.Show();
-                    resultLabelArtist.Show();
-                    resultLabelTitle.Text += sl.Songs[0].Title;
-                    resultLabelArtist.Text += sl.Songs[0].Artist;
+                    //hideResults.Show();
+                    //resultLabelTitle.Show();
+                    //resultLabelArtist.Show();
+                    //resultLabelTitle.Text += sl.Songs[0].Title;
+                    //resultLabelArtist.Text += sl.Songs[0].Artist;
                     Recordtimer.Enabled = false;
-                    //SongList UI_SongList = new SongList();
-                    //UI_SongList.Show();
+                    //SongList SongList = new SongList();
+                    //SongList.Show();
                     //this.Hide();
                     //GC.Collect();
                 }
