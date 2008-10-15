@@ -46,6 +46,7 @@ namespace World_Hello
                 fileName = Path.Combine(fileName, "recording.wav");
                 if (Wave.MMSYSERR.NOERROR != wi.Save(fileName))
                 {
+                    System.Windows.Forms.MessageBox.Show("ERROR: FAILED TO SAVE");
                     //ERROR: FAILED TO SAVE
                 }
                 wi.Dispose();
