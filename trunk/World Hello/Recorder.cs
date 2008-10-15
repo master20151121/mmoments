@@ -10,7 +10,8 @@ namespace World_Hello
     {
         public static String Record()
         {
-	    WaveIn wi = null;
+	        WaveIn wi = null;
+           int RTime = 30000;
 
             try
             {
@@ -19,21 +20,24 @@ namespace World_Hello
                 uint numDevices = wi.NumDevices();
                 if (numDevices < 1)
                 {
+                    System.Windows.Forms.MessageBox.Show("ERROR: No valid sound drivers detected");
                     //ERROR: No valid sound drivers detected
                 }
 
-                if (Wave.MMSYSERR.NOERROR != wi.Preload(30000, 256 * 1024))
+                if (Wave.MMSYSERR.NOERROR != wi.Preload(RTime, 256 * 1024))
                 {
+                    System.Windows.Forms.MessageBox.Show("ERROR: Failed to preload buffers");
                     //ERROR: Failed to preload buffers
                 }
 
                 if (Wave.MMSYSERR.NOERROR != wi.Start())
                 {
+                    System.Windows.Forms.MessageBox.Show("ERROR: Failed to start recording");
                     //ERROR: Failed to start recording
                 }
 
                 
-                Thread.Sleep(30000);
+                Thread.Sleep(RTime);
 
                 wi.Stop();
 
