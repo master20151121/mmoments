@@ -130,5 +130,12 @@ namespace World_Hello
             panel1.Hide();
         }
 
+        private void playrec_Click(object sender, EventArgs e)
+        {
+            String fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+                fileName = System.IO.Path.GetDirectoryName(fileName);
+                fileName = System.IO.Path.Combine(fileName, "recording.wav");
+                waveplayer.PlaySound(fileName);
+        }
     }
 }
