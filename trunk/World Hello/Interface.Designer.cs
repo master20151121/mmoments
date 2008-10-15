@@ -45,6 +45,7 @@ namespace World_Hello
             this.hideResults = new System.Windows.Forms.Button();
             this.resultLabelArtist = new System.Windows.Forms.Label();
             this.resultLabelTitle = new System.Windows.Forms.Label();
+            this.playrec = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@ namespace World_Hello
             this.UI_background.Image = ((System.Drawing.Image)(resources.GetObject("UI_background.Image")));
             this.UI_background.Location = new System.Drawing.Point(0, 0);
             this.UI_background.Name = "UI_background";
-            this.UI_background.Size = new System.Drawing.Size(227, 270);
+            this.UI_background.Size = new System.Drawing.Size(240, 268);
             this.UI_background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // UI_recordBtn
@@ -114,16 +115,16 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 244);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(227, 26);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
             this.UI_Statusbar.Visible = false;
             // 
             // serverAddress
             // 
             this.serverAddress.Location = new System.Drawing.Point(79, 219);
             this.serverAddress.Name = "serverAddress";
-            this.serverAddress.Size = new System.Drawing.Size(139, 25);
+            this.serverAddress.Size = new System.Drawing.Size(139, 21);
             this.serverAddress.TabIndex = 8;
             this.serverAddress.Text = "127.0.0.1";
             // 
@@ -170,12 +171,22 @@ namespace World_Hello
             this.resultLabelTitle.Text = "Title: ";
             this.resultLabelTitle.Visible = false;
             // 
+            // playrec
+            // 
+            this.playrec.Location = new System.Drawing.Point(129, 3);
+            this.playrec.Name = "playrec";
+            this.playrec.Size = new System.Drawing.Size(54, 25);
+            this.playrec.TabIndex = 12;
+            this.playrec.Text = "play";
+            this.playrec.Click += new System.EventHandler(this.playrec_Click);
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.playrec);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.serverAddress);
@@ -213,6 +224,7 @@ namespace World_Hello
         private System.Windows.Forms.Button hideResults;
         private System.Windows.Forms.Label resultLabelArtist;
         private System.Windows.Forms.Label resultLabelTitle;
+        private System.Windows.Forms.Button playrec;
     }
 }
 

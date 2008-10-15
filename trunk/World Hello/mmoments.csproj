@@ -112,11 +112,15 @@
     </Compile>
     <Compile Include="Wave.cs" />
     <Compile Include="WaveIn.cs" />
+    <Compile Include="waveplayer.cs" />
     <Compile Include="wavesimple.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="cool.PNG" />
     <Content Include="musical_note1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.v1.targets" />
   <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
