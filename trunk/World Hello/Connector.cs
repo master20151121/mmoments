@@ -22,7 +22,7 @@ namespace World_Hello
             {
             client = new TcpClient(IP, 345);
             }
-            catch (Exception e)
+            catch
             {
                 return false;
             }

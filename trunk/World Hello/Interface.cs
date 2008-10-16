@@ -57,7 +57,7 @@ namespace World_Hello
         private void link_RecordViaThread()
         {
             FilePath = Recorder.Record();
-            MessageBox.Show(FilePath);
+            //MessageBox.Show(FilePath);
         }
         private void UI_recordBtn_Click(object sender, EventArgs e)
         {
@@ -95,12 +95,11 @@ namespace World_Hello
                 if (conn.Connect(serverAddress.Text) == false)
                 {
                     UI_Statusbar.Text = "Connected to Server";
-                    SongList sl = new SongList();
-                    sl.Add(new Song("Hard", "Gay", 95));
-                    //sl = conn.SendFingerprint(fingerprint);
+                    //sl.Add(new Song("Hard", "Gay", 95));
+                    sl = conn.SendFingerprint(fingerprint);
                     UI_SongList uiSongList = new UI_SongList();
-                    uiSongList.Show();
                     uiSongList.SL = sl;
+                    uiSongList.Show();
                     panel1.Show();
                     //hideResults.Show();
                     //resultLabelTitle.Show();

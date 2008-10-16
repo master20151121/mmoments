@@ -13,8 +13,6 @@ namespace World_Hello
         SongList sl = new SongList();
         public UI_SongList()
         {
-            sl.Add(new Song("Ian", "HI", 97));
-            sl.Add(new Song("Quigley", "Uruguay", 86));
             InitializeComponent();
             UI_ListBox.DataSource = sl.Songs;
             UI_ListBox.DisplayMember = "Title";
@@ -26,7 +24,7 @@ namespace World_Hello
             resultTitleDisplay.Text = ((Song)UI_ListBox.SelectedItem).Title;
             resultPercent.Text = ((Song)UI_ListBox.SelectedItem).Match.ToString() + "%";
         }
-        public SongList SL { get { return sl; } set { sl = value; } }
+        public SongList SL { get { return sl; } set { sl = value; UI_ListBox.Invalidate(); } }
 
         private void hideResults_Click(object sender, EventArgs e)
         {
