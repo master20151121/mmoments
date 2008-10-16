@@ -7,3 +7,5 @@ obj\Debug\mmoments.exe
 obj\Debug\mmoments.pdb
 bin\Debug\mmoments.exe
 bin\Debug\mmoments.pdb
+obj\Debug\mmoments.SongItem.resources
+obj\Debug\World_Hello.UI_SongList.resources

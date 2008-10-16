@@ -115,16 +115,16 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
             this.UI_Statusbar.Visible = false;
             // 
             // serverAddress
             // 
             this.serverAddress.Location = new System.Drawing.Point(79, 219);
             this.serverAddress.Name = "serverAddress";
-            this.serverAddress.Size = new System.Drawing.Size(139, 21);
+            this.serverAddress.Size = new System.Drawing.Size(139, 25);
             this.serverAddress.TabIndex = 8;
             this.serverAddress.Text = "127.0.0.1";
             // 

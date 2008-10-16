@@ -33,10 +33,10 @@ namespace World_Hello
             this.UI_ListBox = new System.Windows.Forms.ListBox();
             this.hideResults = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.resultArtistDisplay = new System.Windows.Forms.Label();
+            this.resultTitleDisplay = new System.Windows.Forms.Label();
             this.resultLabelArtist = new System.Windows.Forms.Label();
             this.resultLabelTitle = new System.Windows.Forms.Label();
-            this.resultTitleDisplay = new System.Windows.Forms.Label();
-            this.resultArtistDisplay = new System.Windows.Forms.Label();
             this.resultPercent = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,20 @@ namespace World_Hello
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(136, 108);
             // 
+            // resultArtistDisplay
+            // 
+            this.resultArtistDisplay.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
+            this.resultArtistDisplay.Location = new System.Drawing.Point(1, 68);
+            this.resultArtistDisplay.Name = "resultArtistDisplay";
+            this.resultArtistDisplay.Size = new System.Drawing.Size(136, 20);
+            // 
+            // resultTitleDisplay
+            // 
+            this.resultTitleDisplay.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
+            this.resultTitleDisplay.Location = new System.Drawing.Point(3, 24);
+            this.resultTitleDisplay.Name = "resultTitleDisplay";
+            this.resultTitleDisplay.Size = new System.Drawing.Size(133, 20);
+            // 
             // resultLabelArtist
             // 
             this.resultLabelArtist.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
@@ -85,20 +99,6 @@ namespace World_Hello
             this.resultLabelTitle.Name = "resultLabelTitle";
             this.resultLabelTitle.Size = new System.Drawing.Size(133, 20);
             this.resultLabelTitle.Text = "Title: ";
-            // 
-            // resultTitleDisplay
-            // 
-            this.resultTitleDisplay.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
-            this.resultTitleDisplay.Location = new System.Drawing.Point(3, 24);
-            this.resultTitleDisplay.Name = "resultTitleDisplay";
-            this.resultTitleDisplay.Size = new System.Drawing.Size(133, 20);
-            // 
-            // resultArtistDisplay
-            // 
-            this.resultArtistDisplay.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
-            this.resultArtistDisplay.Location = new System.Drawing.Point(1, 68);
-            this.resultArtistDisplay.Name = "resultArtistDisplay";
-            this.resultArtistDisplay.Size = new System.Drawing.Size(136, 20);
             // 
             // resultPercent
             // 
