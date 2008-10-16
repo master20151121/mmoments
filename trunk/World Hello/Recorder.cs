@@ -112,13 +112,13 @@ namespace World_Hello
             {
                 wi.Stop();
 
-                String fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
-                fileName = Path.GetDirectoryName(fileName);
-                fileName = Path.Combine(fileName, "recording.wav");
+                string fileName = genfilename();
+                
                 if (Wave.MMSYSERR.NOERROR != wi.Save(fileName))
                 {
                     System.Windows.Forms.MessageBox.Show("ERROR: FAILED TO SAVE");
                     //ERROR: FAILED TO SAVE
+                    //I think when this happens it leaves a file with size in the order of the UPPERLIMMIT.
                 }
                 wi.Dispose();
 
@@ -132,5 +132,26 @@ namespace World_Hello
                 return "ERROR " + e.Message;
             }
         }
+
+
+        static int filecount = 1;
+        static string genfilename()
+        {
+            string fileName;
+            string n;
+            while (true) //should only loop once unless my math breaks.
+            {
+                fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+                fileName = Path.GetDirectoryName(fileName);
+                n = "recording" + filecount.ToString() + ".wav";
+                fileName = Path.Combine(fileName, n);
+                FileInfo fi = new FileInfo(fileName);
+                if (fi.Exists == false)
+                    break;
+                filecount++;
+            }
+            return fileName;
+        }
+
     }
 }
