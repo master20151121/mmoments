@@ -101,7 +101,7 @@ namespace databaseserver
             for(int i=0; i < dt.Rows.Count; i++)
             {
                 //sw.WriteLine("Matches");
-                int c = fingerprintcompare.strings(dt.Rows[i]["Fingerprint"].ToString(), fingerprint); // i think this is what you want.
+                int c = fingerprintcompare.strings(System.Text.ASCIIEncoding.ASCII.GetString(dt.Rows[i]["Fingerprint"]), fingerprint); // i think this is what you want.
         	if (c > 50)
          	{
          	      songs.Add(new Song(dt.Rows[i]["Title"].ToString(), dt.Rows[i]["Artist"].ToString(), c));
