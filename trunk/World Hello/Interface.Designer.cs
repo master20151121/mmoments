@@ -173,7 +173,7 @@ namespace World_Hello
             // 
             // playrec
             // 
-            this.playrec.Location = new System.Drawing.Point(129, 3);
+            this.playrec.Location = new System.Drawing.Point(183, 3);
             this.playrec.Name = "playrec";
             this.playrec.Size = new System.Drawing.Size(54, 25);
             this.playrec.TabIndex = 12;

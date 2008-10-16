@@ -65,6 +65,7 @@ namespace World_Hello
             UI_Statusbar.Text = "Recording";
             UI_Statusbar.Show();
             UI_progressBar.Show();
+            //DynamicRecord.start();
             Thread record = new Thread(link_RecordViaThread);
             record.Name = "recorder";
             record.IsBackground = true;
@@ -76,6 +77,7 @@ namespace World_Hello
         {
             UI_recordBtn.Show();
             UI_stopBtn.Hide();
+            //DynamicRecord.stop();
 
         }
 
