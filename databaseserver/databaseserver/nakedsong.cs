@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Xml;
 
 //for stuff that doesent use sql. Once where happy with this we should 
 //delete the sql stuff and give this a propper name.
@@ -17,8 +18,7 @@ namespace databaseserver
         public string fingerprint;
     }
 
-
-    class scvloader
+    class scvstuff
     {
         static public List<nakedsong> nsonglist = new List<nakedsong>();   
         static string SAVEFILE = "songs.csv";
@@ -147,5 +147,40 @@ namespace databaseserver
          * suggest anything else that gets added goes before the fingerprint. eg.
          * artest, title, newthing, fingerprint
          */
+    }
+
+    class stuffwxml
+    {
+
+        /*
+         * this is about 5X the work. For what?? 'cos you cant set file standards.
+         * csv ftw.
+         */
+         
+        static public List<nakedsong> nsonglist = new List<nakedsong>();
+        static string SAVEFILE = "songs.csv";
+
+        static void save()
+        {
+            XmlWriter xmlwr;
+            try
+            {
+                xmlwr = new XmlTextWriter(SAVEFILE, Encoding.ASCII);
+                foreach (nakedsong ns in nsonglist)
+                {
+                    xmlwr.WriteStartElement("artest");
+                    xmlwr.WriteString(ns.artest);
+                    xmlwr.WriteEndElement();
+                    xmlwr.WriteStartElement("title");
+                    xmlwr.WriteString(ns.title);
+                    xmlwr.WriteEndElement();
+                    xmlwr.WriteStartElement("fingerprint");
+                    xmlwr.WriteString(ns.fingerprint);
+                    xmlwr.WriteEndElement();
+                }
+
+            }
+            catch(Exception ){}
+        }
     }
 }
