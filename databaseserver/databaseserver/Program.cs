@@ -1,4 +1,5 @@
 #define CSV
+#define verbose
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace databaseserver
     class Program
     {
         static int WORTHYMATCH = 50; //percentage
+        static string SAVEFILE = "songs.csv";
 #if CSV
         static List<Song> ListSong;
 #else
@@ -27,6 +29,7 @@ namespace databaseserver
         {
 #if CSV
             ListSong = new List<Song>();
+            loadcsv(ref ListSong);
 #else       
             db = new Database();
 #endif
@@ -54,6 +57,7 @@ namespace databaseserver
                 line = Console.In.ReadLine().ToUpper();
                 if (line == "Q")
                 {
+                    savecsv();
                     Environment.Exit(0);
                 }
                 if (line == "I")
@@ -174,6 +178,161 @@ namespace databaseserver
             return Console.ReadLine();
         }
 
+#if CSV
+        static void loadcsv(ref List<Song> listsong)
+        {   
+            TextReader tr;
+            try
+            {
+#if VERBOSE
+                Console.WriteLine("opening savefile for loading");
+#endif
+                tr = new StreamReader(SAVEFILE);
+                string line;
+                string value;
+                while ((line = tr.ReadLine()) != "") //break on end of file.
+                {
+                    Song newsong = new Song();
+
+                    value = line.Substring(0, line.IndexOf(","));
+                    line = line.Substring(line.IndexOf(","));
+                    newsong.artest = value;
+
+                    value = line.Substring(0, line.IndexOf(","));
+                    line = line.Substring(line.IndexOf(","));
+                    newsong.title = value;
+
+                    value = line.Substring(0, line.IndexOf(","));
+                    line = line.Substring(line.IndexOf(","));
+                    newsong.fingerprint = value;
+                    bool trig = false;
+                    foreach (Song tsong in listsong) //check its not already in the list.
+                    {
+                        if ((tsong.artest == newsong.artest) && (tsong.title == newsong.title))
+                        {
+                            trig = true;
+                            break;
+                        }
+                    }
+                    if (!trig) // if not in list, add.
+                    {
+#if verbose
+                        Console.WriteLine("loaded {0} by {1}", newsong.title, newsong.artest);
+#endif
+                        listsong.Add(newsong);
+                    }
+                }
+                tr.Close();
+            }
+            catch (FileNotFoundException)
+            { Console.WriteLine("FileNotFoundException, cannot load"); return; }
+            catch (FileLoadException)
+            {
+                Console.WriteLine("cannot load, save file in use. FileLoadException");
+                return;
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("NullReference, corrupt file");//or failed math.
+                return;
+            }
+        }
+
+
+        static void savecsv()
+        {
+            List<string> alreadysaved = new List<string>();
+
+            TextReader tr;
+            try
+            {
+#if VERBOSE
+                Console.WriteLine("starting to read saved file");
+#endif
+                tr = new StreamReader(SAVEFILE);
+                string line;
+                while ((line = tr.ReadLine()) != "") //break on end of file.
+                {
+                    string value;
+                    value = line.Substring(0, line.IndexOf(','));//could through error.
+                    value += ",";
+                    line = line.Substring(line.IndexOf(','));//could through error.
+                    value += line.Substring(0, line.IndexOf(','));//could through error.
+                    alreadysaved.Add(value);
+                }
+                tr.Close();
+            }
+            catch (FileNotFoundException) { }//this fine.
+            catch (FileLoadException)
+            {
+                Console.WriteLine("cannot save, save file in use. FileLoadException");
+                return;
+            }
+            catch (NullReferenceException)
+            {
+                Console.WriteLine("NullReferenc, corrupt file");//or failed math.
+                return;
+            }
+#if VERBOSE
+            Console.WriteLine("starting write");
+#endif
+            TextWriter tw;
+            try
+            {
+#if VERBOSE
+                Console.WriteLine("open file for append");
+#endif
+                tw = new StreamWriter(SAVEFILE, true); //append mode.
+
+                foreach (Song ns in ListSong)
+                {
+                    string match = ns.artest + "," + ns.title;
+                    bool trig = false;
+                    foreach (string already in alreadysaved)
+                    {
+                        if (match == already)
+                        {
+                            trig = true;
+                            break;
+                        }
+                    }
+                    if (!trig)
+                    {
+                        tw.WriteLine("{0},{1},{2}",ns.artest, ns.title, ns.fingerprint);
+                    }
+                }
+                tw.Close();
+            }
+
+            catch (FileLoadException)
+            {
+                Console.WriteLine("FileLoadException, file in use? At opening for append");
+                return;
+            }
+
+            //foreach (Song ns in ListSong)
+            //{
+            //    string line;
+            //    line = ns.artest;
+            //    line += ",";
+            //    line += ns.title;
+
+            //    if (alreadysaved.IndexOf(line) != -1)//not in list. -1?
+            //    {
+            //        line += ",";
+            //        line += ns.fingerprint;
+            //        try
+            //        { tw.WriteLine(line); }
+            //        catch (IOException)
+            //        {
+            //            Console.WriteLine("IOException, while saving {1} by {0}", ns.artest, ns.title);
+            //            return;
+            //        }
+            //    }
+            //    tw.Close();
+            //}
+        }
+#endif
         
     }
 }
