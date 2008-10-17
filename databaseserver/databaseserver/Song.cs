@@ -1,9 +1,12 @@
+#define CSV
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+
 
 namespace databaseserver
 {
@@ -36,6 +39,16 @@ namespace databaseserver
             return listOfSongs.Add( song );
           }
     }
+
+#if CSV
+    public class Song
+    {
+        public string title;
+        public string artest;
+        public string fingerprint;
+    }
+
+#else
     public class Song
     {
         [XmlAttribute("title")] public string title;
@@ -63,4 +76,5 @@ namespace databaseserver
             get { return match; }
         }
     }
+#endif
 }

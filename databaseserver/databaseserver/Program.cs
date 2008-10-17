@@ -1,3 +1,4 @@
+#define CSV
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,10 +17,19 @@ namespace databaseserver
 {
     class Program
     {
+        static int WORTHYMATCH = 50; //percentage
+#if CSV
+        static List<Song> ListSong;
+#else
         static Database db;
+#endif
         static void Main(string[] args)
         {
+#if CSV
+            ListSong = new List<Song>();
+#else       
             db = new Database();
+#endif
             //SQLiteCommand com = new SQLiteCommand("CREATE TABLE `songs` (" + 
             //        "`id` INT NOT NULL ," +
             //        "`title` CHAR( 32 ) NOT NULL ," +
@@ -67,6 +77,8 @@ namespace databaseserver
                 conn.Start(s);
             }
         }
+
+
         static void Connection(object s_)
         {
             Socket s = (Socket)s_;
@@ -97,16 +109,27 @@ namespace databaseserver
             }
             string fingerprint = sr.ReadLine();
             SongList songs = new SongList();
+#if CSV
+            foreach (Song savedsong in ListSong)
+            {
+                int c = fingerprintcompare.strings(savedsong.fingerprint, fingerprint);
+                if (c > WORTHYMATCH)
+                {
+                    songs.Add(savedsong);
+                }
+            }
+#else
             DataTable dt = db.GetData("SELECT * FROM songs");
             for(int i=0; i < dt.Rows.Count; i++)
             {
                 //sw.WriteLine("Matches");
-                int c = fingerprintcompare.strings(System.Text.ASCIIEncoding.ASCII.GetString(dt.Rows[i]["Fingerprint"]), fingerprint); // i think this is what you want.
+                int c = fingerprintcompare.strings(System.Text.ASCIIEncoding.ASCII.GetString(dt.Rows[i]["Fingerprint"]), fingerprint); // this doesnt work.
         	if (c > 50)
          	{
          	      songs.Add(new Song(dt.Rows[i]["Title"].ToString(), dt.Rows[i]["Artist"].ToString(), c));
          	}
             }
+#endif
             /*else
             {
                 sw.WriteLine("No matches");
@@ -126,10 +149,17 @@ namespace databaseserver
                 string fileurl = getans("file url"); // might handle true cascaded directories.
                 string fingerprint = calcfinger.generate(fileurl);
                 string artest = getans("artest?");
-                string song = getans("song?");
+                string title = getans("song title?");
                 //could get more info, but not important now.
-
-                // need to store this info somewhere.
+#if CSV
+                Song s = new Song();
+                s.artest = artest;
+                s.title = title;
+                s.fingerprint = fingerprint;
+                ListSong.Add(s);
+#else
+                // isnt completed for sql.
+#endif
                 Console.WriteLine("song added");
             }
             else
@@ -143,5 +173,7 @@ namespace databaseserver
             Console.WriteLine(msg);
             return Console.ReadLine();
         }
+
+        
     }
 }
