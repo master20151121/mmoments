@@ -5,6 +5,8 @@ using System.Text;
 using System.IO;
 using System.Xml;
 
+
+//this page does nothing now. I have moved everything.
 //for stuff that doesent use sql. Once where happy with this we should 
 //delete the sql stuff and give this a propper name.
 
