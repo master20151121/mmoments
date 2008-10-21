@@ -59,6 +59,13 @@ namespace World_Hello
             }
         }
 
+        public void delete()
+        {
+            FileInfo fi = new FileInfo(recordedwav);
+            fi.Delete();
+            //will need to be removed from instancelist.
+        }
+
         public string getwavurl() { return recordedwav; }
         public DateTime getrecordtime() { return recordtime; }
         public string getfingerprint() { return fingerprint; }

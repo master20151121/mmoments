@@ -45,6 +45,7 @@ namespace World_Hello
             this.recordtime = new System.Windows.Forms.Label();
             this.previousinstance = new System.Windows.Forms.Button();
             this.nextinstance = new System.Windows.Forms.Button();
+            this.instancedelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UI_recordBtn
@@ -149,7 +150,7 @@ namespace World_Hello
             // 
             this.recordtime.Location = new System.Drawing.Point(67, 79);
             this.recordtime.Name = "recordtime";
-            this.recordtime.Size = new System.Drawing.Size(94, 17);
+            this.recordtime.Size = new System.Drawing.Size(105, 17);
             this.recordtime.Text = "record time";
             // 
             // previousinstance
@@ -163,12 +164,21 @@ namespace World_Hello
             // 
             // nextinstance
             // 
-            this.nextinstance.Location = new System.Drawing.Point(145, 103);
+            this.nextinstance.Location = new System.Drawing.Point(91, 103);
             this.nextinstance.Name = "nextinstance";
             this.nextinstance.Size = new System.Drawing.Size(55, 20);
             this.nextinstance.TabIndex = 23;
             this.nextinstance.Text = "next";
             this.nextinstance.Click += new System.EventHandler(this.nextinstance_Click);
+            // 
+            // instancedelete
+            // 
+            this.instancedelete.Location = new System.Drawing.Point(167, 103);
+            this.instancedelete.Name = "instancedelete";
+            this.instancedelete.Size = new System.Drawing.Size(52, 20);
+            this.instancedelete.TabIndex = 24;
+            this.instancedelete.Text = "delete";
+            this.instancedelete.Click += new System.EventHandler(this.instancedelete_Click);
             // 
             // Interface
             // 
@@ -177,6 +187,7 @@ namespace World_Hello
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.instancedelete);
             this.Controls.Add(this.nextinstance);
             this.Controls.Add(this.previousinstance);
             this.Controls.Add(this.recordtime);
@@ -215,6 +226,7 @@ namespace World_Hello
         private System.Windows.Forms.Label recordtime;
         private System.Windows.Forms.Button previousinstance;
         private System.Windows.Forms.Button nextinstance;
+        private System.Windows.Forms.Button instancedelete;
     }
 }
 

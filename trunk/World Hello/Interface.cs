@@ -1,4 +1,4 @@
-#define VERBOSE
+//#define VERBOSE
 
 using System;
 using System.Collections.Generic;
@@ -191,6 +191,17 @@ namespace World_Hello
 #endif
                 currentinstance = instancelist[i + 1];
                 recordtime.Text = currentinstance.getrecordtime().Hour + ":" + currentinstance.getrecordtime().Minute + " " + currentinstance.getrecordtime().DayOfWeek;
+            }
+        }
+
+        private void instancedelete_Click(object sender, EventArgs e)
+        {
+            currentinstance.delete();
+            int i = instancelist.IndexOf(currentinstance);
+            instancelist.Remove(currentinstance);
+            if ((i > 0) && (i < instancelist.Count - 1))
+            { currentinstance = instancelist[i - 1];
+            recordtime.Text = currentinstance.getrecordtime().Hour + ":" + currentinstance.getrecordtime().Minute + " " + currentinstance.getrecordtime().DayOfWeek;
             }
         }
     }
