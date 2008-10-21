@@ -1,3 +1,4 @@
+#define DEBUG
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace World_Hello
 
         public songinstance()
         {
-            recordtime = DateTime.Now;
+            matches= new SongList();
         }
 
         public void record()
@@ -37,6 +38,7 @@ namespace World_Hello
         {
             recordedwav= DynamicRecord.stop();
             fingerprint = calcfinger.generate(recordedwav);
+            recordtime = DateTime.Now;
         }
         public bool askserver() // return true on succeed, return false on fail.
         {
@@ -59,21 +61,25 @@ namespace World_Hello
 
     class csvmanager
     {
-        static string SAVEFILE = "instancesaver.csv";
+        static string SAVEFILE = "instancesaver.txt";
 
-        static void save(List<songinstance> list)
+        public static void save(List<songinstance> list)
         {
+            string fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+            fileName = Path.GetDirectoryName(fileName);
+            fileName = Path.Combine(fileName, SAVEFILE);
             TextWriter tw;
+            System.Windows.Forms.MessageBox.Show("csvmanager, saving");
             try
             {
-                tw = new StreamWriter(SAVEFILE, false);//overwrite.
+                tw = new StreamWriter(fileName, false);//overwrite.                
                 foreach (songinstance si in list)
                 {
-                    string line = si.getwavurl() + "," + si.getrecordtime().ToString() + "," + si.getfingerprint();
+                    string line = si.getwavurl() + "," + si.getrecordtime().ToString() + "," + si.getfingerprint() + ",";
                     SongList silist = si.getsonglist();
                     for (int i = 0; i < silist.Count; i++)
                     {
-                        line += "," + silist[i].artist + "," + silist[i].title;
+                        line += silist[i].artist + "," + silist[i].title + ",";
                     }
                     tw.WriteLine(line);
                 }
@@ -85,12 +91,16 @@ namespace World_Hello
             }
         }
 
-        static List<songinstance> load()
+        public static List<songinstance> load()
         {
+            System.Windows.Forms.MessageBox.Show("csvmanager loading");
+            string fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
+            fileName = Path.GetDirectoryName(fileName);
+            fileName = Path.Combine(fileName, SAVEFILE);
             List<songinstance> returnlist = new List<songinstance>();
             try
             {
-                TextReader tr = new StreamReader(SAVEFILE);
+                TextReader tr = new StreamReader(fileName);
                 string line;
                 string value;
                 while ((line = tr.ReadLine()) != null)
@@ -100,14 +110,23 @@ namespace World_Hello
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
                     si.setwaveurl(value);
+#if DEBUG
+                    System.Windows.Forms.MessageBox.Show("value :"+value);
+#endif
 
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
                     si.setdatetime(value);
+#if DEBUG
+                    System.Windows.Forms.MessageBox.Show("value :" + value);
+#endif
 
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
                     si.setfingerprint(value);
+#if DEBUG
+                    System.Windows.Forms.MessageBox.Show("value :" + value);
+#endif
 
                     SongList sl = new SongList();
                     int cindex;
