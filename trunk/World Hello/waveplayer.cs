@@ -23,10 +23,10 @@ namespace World_Hello
             SND_FILENAME = 0x00020000, /* name is file name */
         }
 
+
         public static void PlaySound(string filename)
         {
             FILENAME = filename;
-            //WCE_PlaySound(FILENAME, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_FILENAME));
             runningplayer = new Thread(playthread);
             runningplayer.IsBackground = true;
             runningplayer.Start();
@@ -35,10 +35,10 @@ namespace World_Hello
         private static void playthread()
         {
             //System.Windows.Forms.MessageBox.Show("starting play");
-            //WCE_PlaySound(FILENAME, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_FILENAME));
-            WCE_PlaySound(FILENAME, IntPtr.Zero, (int)(Flags.SND_SYNC | Flags.SND_FILENAME));            
+            WCE_PlaySound(FILENAME, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_FILENAME));
         }
 
+#if WANTBROKENSTUFF
         public static void stop() //doesnt work.
         {
 
@@ -53,6 +53,8 @@ namespace World_Hello
                 return;
             }
         }
+#endif
+
     }
 }
 
