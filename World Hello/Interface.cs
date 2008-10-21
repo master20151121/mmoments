@@ -11,12 +11,18 @@ namespace World_Hello
 {
     public partial class Interface : Form
     {
+        static songinstance currentinstance;
+        static List<songinstance> instancelist;
+
         private String FilePath;
         private Connector conn = new Connector();
         private SongList sl;
         public Interface()
         {
             InitializeComponent();
+            instancelist = csvmanager.load();
+            if (instancelist.Count > 0)
+            { currentinstance = instancelist[instancelist.Count - 1]; }//the last songinstance.
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -50,8 +56,10 @@ namespace World_Hello
 
         }
 
-        private void menuItem2_Click(object sender, EventArgs e)
+        private void menuItem2_Click(object sender, EventArgs e) //exit
         {
+            instancelist.Add(currentinstance);
+            csvmanager.save(instancelist);
             Application.Exit();
         }
         private void link_RecordViaThread()
@@ -63,13 +71,17 @@ namespace World_Hello
         {
             UI_Statusbar.Text = "Recording";
             UI_Statusbar.Show();
-            UI_progressBar.Show();
+            UI_Statusbar.Text = "Recording";
+            //UI_progressBar.Show(); // needs to be repeating. No fixed end time.
+            
+            currentinstance = new songinstance();
+            currentinstance.record();
             //DynamicRecord.start();
-            Thread record = new Thread(link_RecordViaThread);
-            record.Name = "recorder";
-            record.IsBackground = true;
-            record.Start();
-            Recordtimer.Enabled = true;
+            //Thread record = new Thread(link_RecordViaThread);
+            //record.Name = "recorder";
+            //record.IsBackground = true;
+            //record.Start();
+            //Recordtimer.Enabled = true;
         }
 
         private void Recordtimer_Tick(object sender, EventArgs e)
@@ -124,10 +136,11 @@ namespace World_Hello
 
         private void playrec_Click(object sender, EventArgs e)
         {
-            String fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
-                fileName = System.IO.Path.GetDirectoryName(fileName);
-                fileName = System.IO.Path.Combine(fileName, "recording1.wav");
-                waveplayer.PlaySound(fileName);
+            UI_Statusbar.Show();
+            UI_Statusbar.Text = "Playing";
+            string fn = currentinstance.getwavurl();
+            waveplayer.PlaySound(fn);
+            UI_Statusbar.Hide();
         }
         public void reload()
         {
@@ -139,6 +152,12 @@ namespace World_Hello
         {
             Options opt = new Options();
             opt.Show();
+        }
+
+        private void stoprec_Click(object sender, EventArgs e)
+        {
+            UI_Statusbar.Text = "saving / fingerprinting";
+            currentinstance.stoprecord();
         }
     }
 }

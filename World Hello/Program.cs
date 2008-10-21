@@ -1,4 +1,3 @@
-#define DEBUG
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -93,7 +92,6 @@ namespace World_Hello
 
         public static List<songinstance> load()
         {
-            System.Windows.Forms.MessageBox.Show("csvmanager loading");
             string fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
             fileName = Path.GetDirectoryName(fileName);
             fileName = Path.Combine(fileName, SAVEFILE);
@@ -110,23 +108,14 @@ namespace World_Hello
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
                     si.setwaveurl(value);
-#if DEBUG
-                    System.Windows.Forms.MessageBox.Show("value :"+value);
-#endif
 
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
                     si.setdatetime(value);
-#if DEBUG
-                    System.Windows.Forms.MessageBox.Show("value :" + value);
-#endif
 
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
                     si.setfingerprint(value);
-#if DEBUG
-                    System.Windows.Forms.MessageBox.Show("value :" + value);
-#endif
 
                     SongList sl = new SongList();
                     int cindex;
