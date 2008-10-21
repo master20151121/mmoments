@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.IO;
 
 namespace World_Hello
 {
@@ -42,5 +43,104 @@ namespace World_Hello
             //sorry dont realy know what needs to be done here.
             return false;
         }
+
+        public string getwavurl() { return recordedwav; }
+        public DateTime getrecordtime() { return recordtime; }
+        public string getfingerprint() { return fingerprint; }
+        public SongList getsonglist() { return matches; }
+        public void setwaveurl(string url) { recordedwav = url; }
+        public void setdatetime(string dt) { recordtime = Convert.ToDateTime(dt); }//untested
+        public void setfingerprint(string print) { fingerprint = print; }
+        public void setmatches(SongList sl) { matches = sl; }
     }
+
+    //somewhere we should have a list of these songinstances.
+    //here is something to save/load them.
+
+    class csvmanager
+    {
+        static string SAVEFILE = "instancesaver.csv";
+
+        static void save(List<songinstance> list)
+        {
+            TextWriter tw;
+            try
+            {
+                tw = new StreamWriter(SAVEFILE, false);//overwrite.
+                foreach (songinstance si in list)
+                {
+                    string line = si.getwavurl() + "," + si.getrecordtime().ToString() + "," + si.getfingerprint();
+                    SongList silist = si.getsonglist();
+                    for (int i = 0; i < silist.Count; i++)
+                    {
+                        line += "," + silist[i].artist + "," + silist[i].title;
+                    }
+                    tw.WriteLine(line);
+                }
+                tw.Close();
+            }
+            catch (IOException)
+            {
+                System.Windows.Forms.MessageBox.Show("IOException, out of diskspace?");
+            }
+        }
+
+        static List<songinstance> load()
+        {
+            List<songinstance> returnlist = new List<songinstance>();
+            try
+            {
+                TextReader tr = new StreamReader(SAVEFILE);
+                string line;
+                string value;
+                while ((line = tr.ReadLine()) != null)
+                {
+                    songinstance si = new songinstance();
+
+                    value = line.Substring(0, line.IndexOf(","));
+                    line = line.Substring(line.IndexOf(",") + 1);
+                    si.setwaveurl(value);
+
+                    value = line.Substring(0, line.IndexOf(","));
+                    line = line.Substring(line.IndexOf(",") + 1);
+                    si.setdatetime(value);
+
+                    value = line.Substring(0, line.IndexOf(","));
+                    line = line.Substring(line.IndexOf(",") + 1);
+                    si.setfingerprint(value);
+
+                    SongList sl = new SongList();
+                    int cindex;
+                    while ((cindex = line.IndexOf(",")) != -1) //-1?
+                    {
+                        Song s = new Song();
+                        value = line.Substring(0, line.IndexOf(","));
+                        line = line.Substring(line.IndexOf(",")+1);
+                        s.artist = value;
+                        value = line.Substring(0, line.IndexOf(","));
+                        line = line.Substring(line.IndexOf(",") + 1);
+                        s.title = value;
+                        value = line.Substring(0, line.IndexOf(","));
+                        line = line.Substring(line.IndexOf(",") + 1);
+                        s.match = Int32.Parse(value);
+                        sl.Add(s);
+                    }
+                    returnlist.Add(si);
+
+                }
+                return returnlist;
+            }
+            catch (FileNotFoundException) { return returnlist; }//returnlist is empty, that should be fine.
+            catch (IOException)
+            {
+                System.Windows.Forms.MessageBox.Show("IOException, this is odd.");
+                return returnlist;
+            }
+        }
+    }
+
+
+    //csv format
+    // recordurl,datetime,fingerprint,songlistitem1.artest,songlistitem1.title,songlistitem1.match,songlistitem2.artest,songlistitem2.title,etc
+
 }
