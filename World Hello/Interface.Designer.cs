@@ -41,6 +41,10 @@ namespace World_Hello
             this.playrec = new System.Windows.Forms.Button();
             this.UI_background = new System.Windows.Forms.PictureBox();
             this.stoprec = new System.Windows.Forms.Button();
+            this.send = new System.Windows.Forms.Button();
+            this.recordtime = new System.Windows.Forms.Label();
+            this.previousinstance = new System.Windows.Forms.Button();
+            this.nextinstance = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UI_recordBtn
@@ -96,9 +100,9 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
             this.UI_Statusbar.Visible = false;
             // 
             // playrec
@@ -132,6 +136,40 @@ namespace World_Hello
             this.stoprec.Text = "Stop";
             this.stoprec.Click += new System.EventHandler(this.stoprec_Click);
             // 
+            // send
+            // 
+            this.send.Location = new System.Drawing.Point(13, 47);
+            this.send.Name = "send";
+            this.send.Size = new System.Drawing.Size(60, 29);
+            this.send.TabIndex = 20;
+            this.send.Text = "send";
+            this.send.Click += new System.EventHandler(this.send_Click);
+            // 
+            // recordtime
+            // 
+            this.recordtime.Location = new System.Drawing.Point(67, 79);
+            this.recordtime.Name = "recordtime";
+            this.recordtime.Size = new System.Drawing.Size(94, 17);
+            this.recordtime.Text = "record time";
+            // 
+            // previousinstance
+            // 
+            this.previousinstance.Location = new System.Drawing.Point(3, 99);
+            this.previousinstance.Name = "previousinstance";
+            this.previousinstance.Size = new System.Drawing.Size(70, 24);
+            this.previousinstance.TabIndex = 22;
+            this.previousinstance.Text = "previous";
+            this.previousinstance.Click += new System.EventHandler(this.previousinstance_Click);
+            // 
+            // nextinstance
+            // 
+            this.nextinstance.Location = new System.Drawing.Point(145, 103);
+            this.nextinstance.Name = "nextinstance";
+            this.nextinstance.Size = new System.Drawing.Size(55, 20);
+            this.nextinstance.TabIndex = 23;
+            this.nextinstance.Text = "next";
+            this.nextinstance.Click += new System.EventHandler(this.nextinstance_Click);
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -139,6 +177,10 @@ namespace World_Hello
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.nextinstance);
+            this.Controls.Add(this.previousinstance);
+            this.Controls.Add(this.recordtime);
+            this.Controls.Add(this.send);
             this.Controls.Add(this.stoprec);
             this.Controls.Add(this.playrec);
             this.Controls.Add(this.UI_Statusbar);
@@ -169,6 +211,10 @@ namespace World_Hello
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.PictureBox UI_background;
         private System.Windows.Forms.Button stoprec;
+        private System.Windows.Forms.Button send;
+        private System.Windows.Forms.Label recordtime;
+        private System.Windows.Forms.Button previousinstance;
+        private System.Windows.Forms.Button nextinstance;
     }
 }
 

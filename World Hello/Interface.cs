@@ -1,3 +1,5 @@
+#define VERBOSE
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -73,9 +75,10 @@ namespace World_Hello
             UI_Statusbar.Show();
             UI_Statusbar.Text = "Recording";
             //UI_progressBar.Show(); // needs to be repeating. No fixed end time.
-            
             currentinstance = new songinstance();
+            instancelist.Add(currentinstance);
             currentinstance.record();
+            recordtime.Text = currentinstance.getrecordtime().Hour + ":" + currentinstance.getrecordtime().Minute + " " + currentinstance.getrecordtime().DayOfWeek;
             //DynamicRecord.start();
             //Thread record = new Thread(link_RecordViaThread);
             //record.Name = "recorder";
@@ -158,6 +161,37 @@ namespace World_Hello
         {
             UI_Statusbar.Text = "saving / fingerprinting";
             currentinstance.stoprecord();
+        }
+
+        private void send_Click(object sender, EventArgs e)
+        {
+            currentinstance.askserver(this, AppSettings.server);
+        }
+
+        private void previousinstance_Click(object sender, EventArgs e)
+        {
+            int i= instancelist.IndexOf(currentinstance);
+            if (i - 1 >= 0)
+            {
+#if VERBOSE
+                MessageBox.Show("going to previous instance");
+#endif
+                currentinstance = instancelist[i - 1];
+                recordtime.Text = currentinstance.getrecordtime().Hour + ":" + currentinstance.getrecordtime().Minute + " " + currentinstance.getrecordtime().DayOfWeek;
+            }
+        }
+
+        private void nextinstance_Click(object sender, EventArgs e)
+        {
+            int i = instancelist.IndexOf(currentinstance);
+            if (i < instancelist.Count - 1)
+            {
+#if VERBOSE
+                MessageBox.Show("going to next instance");
+#endif
+                currentinstance = instancelist[i + 1];
+                recordtime.Text = currentinstance.getrecordtime().Hour + ":" + currentinstance.getrecordtime().Minute + " " + currentinstance.getrecordtime().DayOfWeek;
+            }
         }
     }
 }

@@ -32,17 +32,31 @@ namespace World_Hello
         public void record()
         {
             DynamicRecord.start();
+            recordtime = DateTime.Now;
         }
         public void stoprecord()
         {
             recordedwav= DynamicRecord.stop();
             fingerprint = calcfinger.generate(recordedwav);
-            recordtime = DateTime.Now;
         }
-        public bool askserver() // return true on succeed, return false on fail.
+        public bool askserver(Interface theint, string serverip) // return true on succeed, return false on fail.
         {
-            //sorry dont realy know what needs to be done here.
-            return false;
+            Connector con = new Connector();
+            if (con.Connect(serverip) == true)
+            {
+                matches = con.SendFingerprint(fingerprint);
+
+                UI_SongList uiSongList = new UI_SongList(theint);
+                uiSongList.SL = matches;
+                uiSongList.Show();
+                return true;
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("failed to connect");//should be replaced with statusbar.
+                //how to change status bar here?
+                return false;
+            }
         }
 
         public string getwavurl() { return recordedwav; }
@@ -68,7 +82,7 @@ namespace World_Hello
             fileName = Path.GetDirectoryName(fileName);
             fileName = Path.Combine(fileName, SAVEFILE);
             TextWriter tw;
-            System.Windows.Forms.MessageBox.Show("csvmanager, saving");
+            //System.Windows.Forms.MessageBox.Show("csvmanager, saving");
             try
             {
                 tw = new StreamWriter(fileName, false);//overwrite.                
