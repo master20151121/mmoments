@@ -126,7 +126,7 @@ namespace World_Hello
         {
             String fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
                 fileName = System.IO.Path.GetDirectoryName(fileName);
-                fileName = System.IO.Path.Combine(fileName, "recording.wav");
+                fileName = System.IO.Path.Combine(fileName, "recording1.wav");
                 waveplayer.PlaySound(fileName);
         }
         public void reload()
