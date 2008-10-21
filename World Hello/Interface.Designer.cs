@@ -46,6 +46,7 @@ namespace World_Hello
             // UI_recordBtn
             // 
             this.UI_recordBtn.BackColor = System.Drawing.Color.LawnGreen;
+            this.UI_recordBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.UI_recordBtn.Location = new System.Drawing.Point(3, 3);
             this.UI_recordBtn.Name = "UI_recordBtn";
             this.UI_recordBtn.Size = new System.Drawing.Size(70, 30);
@@ -95,18 +96,20 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
             this.UI_Statusbar.Visible = false;
             // 
             // playrec
             // 
-            this.playrec.Location = new System.Drawing.Point(183, 3);
+            this.playrec.BackColor = System.Drawing.Color.Red;
+            this.playrec.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.playrec.Location = new System.Drawing.Point(167, 3);
             this.playrec.Name = "playrec";
-            this.playrec.Size = new System.Drawing.Size(54, 25);
+            this.playrec.Size = new System.Drawing.Size(70, 30);
             this.playrec.TabIndex = 12;
-            this.playrec.Text = "play";
+            this.playrec.Text = "Play";
             this.playrec.Click += new System.EventHandler(this.playrec_Click);
             // 
             // UI_background
@@ -120,11 +123,13 @@ namespace World_Hello
             // 
             // stoprec
             // 
-            this.stoprec.Location = new System.Drawing.Point(8, 42);
+            this.stoprec.BackColor = System.Drawing.SystemColors.Highlight;
+            this.stoprec.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.stoprec.Location = new System.Drawing.Point(79, 3);
             this.stoprec.Name = "stoprec";
-            this.stoprec.Size = new System.Drawing.Size(72, 20);
+            this.stoprec.Size = new System.Drawing.Size(82, 30);
             this.stoprec.TabIndex = 16;
-            this.stoprec.Text = "stop";
+            this.stoprec.Text = "Stop";
             this.stoprec.Click += new System.EventHandler(this.stoprec_Click);
             // 
             // Interface

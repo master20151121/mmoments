@@ -57,3 +57,4 @@ C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.pd
 C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\bin\Debug\mmoments.exe
 C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\bin\Debug\mmoments.pdb
 C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.Options.resources
+E:\134 Project\World Hello\World Hello\obj\Debug\World_Hello.Options.resources
