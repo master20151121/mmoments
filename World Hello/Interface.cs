@@ -61,7 +61,6 @@ namespace World_Hello
         }
         private void UI_recordBtn_Click(object sender, EventArgs e)
         {
-            UI_stopBtn.Show();
             UI_Statusbar.Text = "Recording";
             UI_Statusbar.Show();
             UI_progressBar.Show();
@@ -71,14 +70,6 @@ namespace World_Hello
             record.IsBackground = true;
             record.Start();
             Recordtimer.Enabled = true;
-        }
-
-        private void UI_stopBtn_Click(object sender, EventArgs e)
-        {
-            UI_recordBtn.Show();
-            UI_stopBtn.Hide();
-            //DynamicRecord.stop();
-
         }
 
         private void Recordtimer_Tick(object sender, EventArgs e)
@@ -92,15 +83,15 @@ namespace World_Hello
             {
                 string fingerprint = calcfinger.generate(FilePath);
                 UI_Statusbar.Text = "Processing";
-                if (conn.Connect(serverAddress.Text) == false)
+                if (conn.Connect(AppSettings.server) == false)
                 {
                     UI_Statusbar.Text = "Connected to Server";
                     //sl.Add(new Song("Hard", "Gay", 95));
                     sl = conn.SendFingerprint(fingerprint);
-                    UI_SongList uiSongList = new UI_SongList();
+                    UI_SongList uiSongList = new UI_SongList(this);
                     uiSongList.SL = sl;
                     uiSongList.Show();
-                    panel1.Show();
+                    //panel1.Show();
                     //hideResults.Show();
                     //resultLabelTitle.Show();
                     //resultLabelArtist.Show();
@@ -119,17 +110,17 @@ namespace World_Hello
             }
         }
 
-        private void hideResults_Click(object sender, EventArgs e)
-        {
-            UI_progressBar.Hide();
-            UI_progressBar.Value = 0;
-            resultLabelTitle.Hide();
-            resultLabelTitle.Text = "Title: ";
-            resultLabelArtist.Hide();
-            resultLabelArtist.Text = "Title: ";
-            hideResults.Hide();
-            panel1.Hide();
-        }
+        //private void hideResults_Click(object sender, EventArgs e)
+        //{
+        //    UI_progressBar.Hide();
+        //    UI_progressBar.Value = 0;
+        //    resultLabelTitle.Hide();
+        //    resultLabelTitle.Text = "Title: ";
+        //    resultLabelArtist.Hide();
+        //    resultLabelArtist.Text = "Title: ";
+        //    hideResults.Hide();
+        //    panel1.Hide();
+        //}
 
         private void playrec_Click(object sender, EventArgs e)
         {
@@ -137,6 +128,17 @@ namespace World_Hello
                 fileName = System.IO.Path.GetDirectoryName(fileName);
                 fileName = System.IO.Path.Combine(fileName, "recording.wav");
                 waveplayer.PlaySound(fileName);
+        }
+        public void reload()
+        {
+            UI_progressBar.Hide();
+            UI_progressBar.Value = 0;
+        }
+
+        private void menuItem3_Click(object sender, EventArgs e)
+        {
+            Options opt = new Options();
+            opt.Show();
         }
     }
 }

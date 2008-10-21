@@ -45,3 +45,15 @@ E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.exe
 E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.pdb
 E:\134 Project\World Hello\World Hello\obj\Debug\mmoments.SongItem.resources
 E:\134 Project\World Hello\World Hello\obj\Debug\World_Hello.UI_SongList.resources
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.Interface.resources
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.Properties.Resources.resources
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.SongItem.resources
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.UI_SongList.resources
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.SplashScreen.resources
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.csproj.GenerateResource.Cache
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.exe
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\mmoments.pdb
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\bin\Debug\mmoments.exe
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\bin\Debug\mmoments.pdb
+C:\Users\Simon\Desktop\COMP134Project\mmoments\World Hello\obj\Debug\World_Hello.Options.resources

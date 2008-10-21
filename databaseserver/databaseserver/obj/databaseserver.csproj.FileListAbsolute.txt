@@ -17,3 +17,10 @@ E:\World Hello\databaseserver\databaseserver\bin\Debug\databaseserver.pdb
 E:\World Hello\databaseserver\databaseserver\obj\Debug\ResolveAssemblyReference.cache
 E:\World Hello\databaseserver\databaseserver\obj\Debug\databaseserver.exe
 E:\World Hello\databaseserver\databaseserver\obj\Debug\databaseserver.pdb
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserver.exe.config
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\databaseserver.exe
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\databaseserver.pdb
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserver.exe
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\databaseserver.pdb
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\bin\Debug\System.Data.SQLite.dll
+C:\Users\Simon\Desktop\COMP134Project\mmoments\databaseserver\databaseserver\obj\Debug\ResolveAssemblyReference.cache
