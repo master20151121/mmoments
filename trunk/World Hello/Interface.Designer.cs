@@ -33,13 +33,14 @@ namespace World_Hello
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem4 = new System.Windows.Forms.MenuItem();
+            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.UI_progressBar = new System.Windows.Forms.ProgressBar();
             this.Recordtimer = new System.Windows.Forms.Timer();
             this.UI_Statusbar = new System.Windows.Forms.StatusBar();
             this.playrec = new System.Windows.Forms.Button();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
             this.UI_background = new System.Windows.Forms.PictureBox();
+            this.stoprec = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UI_recordBtn
@@ -68,6 +69,11 @@ namespace World_Hello
             // 
             this.menuItem4.Text = "Record";
             this.menuItem4.Click += new System.EventHandler(this.UI_recordBtn_Click);
+            // 
+            // menuItem3
+            // 
+            this.menuItem3.Text = "Options";
+            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
             // 
             // menuItem2
             // 
@@ -103,11 +109,6 @@ namespace World_Hello
             this.playrec.Text = "play";
             this.playrec.Click += new System.EventHandler(this.playrec_Click);
             // 
-            // menuItem3
-            // 
-            this.menuItem3.Text = "Options";
-            this.menuItem3.Click += new System.EventHandler(this.menuItem3_Click);
-            // 
             // UI_background
             // 
             this.UI_background.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -117,6 +118,15 @@ namespace World_Hello
             this.UI_background.Size = new System.Drawing.Size(240, 268);
             this.UI_background.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
+            // stoprec
+            // 
+            this.stoprec.Location = new System.Drawing.Point(8, 42);
+            this.stoprec.Name = "stoprec";
+            this.stoprec.Size = new System.Drawing.Size(72, 20);
+            this.stoprec.TabIndex = 16;
+            this.stoprec.Text = "stop";
+            this.stoprec.Click += new System.EventHandler(this.stoprec_Click);
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -124,6 +134,7 @@ namespace World_Hello
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.stoprec);
             this.Controls.Add(this.playrec);
             this.Controls.Add(this.UI_Statusbar);
             this.Controls.Add(this.UI_progressBar);
@@ -152,6 +163,7 @@ namespace World_Hello
         private System.Windows.Forms.Button playrec;
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.PictureBox UI_background;
+        private System.Windows.Forms.Button stoprec;
     }
 }
 
