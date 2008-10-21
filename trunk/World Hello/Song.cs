@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace World_Hello
 {
     [XmlRoot("songList")]
-    public class SongList
+    public class SongList : System.Collections.ObjectModel.Collection<Song>
     {
         private ArrayList listOfSongs;
 
@@ -36,7 +36,7 @@ namespace World_Hello
             }
         }
 
-        public int Add(Song song)
+        new public int Add(Song song)
         {
             return listOfSongs.Add(song);
         }

@@ -11,9 +11,11 @@ namespace World_Hello
     public partial class UI_SongList : Form
     {
         SongList sl = new SongList();
-        public UI_SongList()
+        Interface _par;
+        public UI_SongList(Interface par)
         {
             InitializeComponent();
+            _par = par;
             UI_ListBox.DataSource = sl.Songs;
             UI_ListBox.DisplayMember = "Title";
         }
@@ -28,7 +30,8 @@ namespace World_Hello
 
         private void hideResults_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            _par.reload();
         }
     }
 }

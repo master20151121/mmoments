@@ -58,6 +58,7 @@ namespace World_Hello
             this.hideResults.Size = new System.Drawing.Size(130, 20);
             this.hideResults.TabIndex = 3;
             this.hideResults.Text = "Close";
+            this.hideResults.Click += new System.EventHandler(this.hideResults_Click);
             // 
             // panel1
             // 
