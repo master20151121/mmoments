@@ -101,9 +101,9 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
             this.UI_Statusbar.Visible = false;
             // 
             // playrec
@@ -139,45 +139,53 @@ namespace World_Hello
             // 
             // send
             // 
-            this.send.Location = new System.Drawing.Point(13, 47);
+            this.send.BackColor = System.Drawing.Color.Blue;
+            this.send.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.send.Location = new System.Drawing.Point(3, 39);
             this.send.Name = "send";
-            this.send.Size = new System.Drawing.Size(60, 29);
+            this.send.Size = new System.Drawing.Size(70, 29);
             this.send.TabIndex = 20;
-            this.send.Text = "send";
+            this.send.Text = "Send";
             this.send.Click += new System.EventHandler(this.send_Click);
             // 
             // recordtime
             // 
-            this.recordtime.Location = new System.Drawing.Point(67, 79);
+            this.recordtime.Location = new System.Drawing.Point(79, 88);
             this.recordtime.Name = "recordtime";
             this.recordtime.Size = new System.Drawing.Size(105, 17);
             this.recordtime.Text = "record time";
             // 
             // previousinstance
             // 
-            this.previousinstance.Location = new System.Drawing.Point(3, 99);
+            this.previousinstance.BackColor = System.Drawing.Color.Red;
+            this.previousinstance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.previousinstance.Location = new System.Drawing.Point(79, 39);
             this.previousinstance.Name = "previousinstance";
-            this.previousinstance.Size = new System.Drawing.Size(70, 24);
+            this.previousinstance.Size = new System.Drawing.Size(82, 29);
             this.previousinstance.TabIndex = 22;
-            this.previousinstance.Text = "previous";
+            this.previousinstance.Text = "Previous";
             this.previousinstance.Click += new System.EventHandler(this.previousinstance_Click);
             // 
             // nextinstance
             // 
-            this.nextinstance.Location = new System.Drawing.Point(91, 103);
+            this.nextinstance.BackColor = System.Drawing.Color.Lime;
+            this.nextinstance.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.nextinstance.Location = new System.Drawing.Point(167, 39);
             this.nextinstance.Name = "nextinstance";
-            this.nextinstance.Size = new System.Drawing.Size(55, 20);
+            this.nextinstance.Size = new System.Drawing.Size(70, 29);
             this.nextinstance.TabIndex = 23;
-            this.nextinstance.Text = "next";
+            this.nextinstance.Text = "Next";
             this.nextinstance.Click += new System.EventHandler(this.nextinstance_Click);
             // 
             // instancedelete
             // 
-            this.instancedelete.Location = new System.Drawing.Point(167, 103);
+            this.instancedelete.BackColor = System.Drawing.Color.Crimson;
+            this.instancedelete.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.instancedelete.Location = new System.Drawing.Point(3, 74);
             this.instancedelete.Name = "instancedelete";
-            this.instancedelete.Size = new System.Drawing.Size(52, 20);
+            this.instancedelete.Size = new System.Drawing.Size(70, 31);
             this.instancedelete.TabIndex = 24;
-            this.instancedelete.Text = "delete";
+            this.instancedelete.Text = "Delete";
             this.instancedelete.Click += new System.EventHandler(this.instancedelete_Click);
             // 
             // Interface
