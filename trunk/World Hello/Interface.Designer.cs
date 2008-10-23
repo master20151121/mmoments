@@ -102,9 +102,9 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
             this.UI_Statusbar.Visible = false;
             // 
             // playrec
@@ -151,7 +151,7 @@ namespace World_Hello
             // 
             // recordtime
             // 
-            this.recordtime.Location = new System.Drawing.Point(79, 88);
+            this.recordtime.Location = new System.Drawing.Point(79, 108);
             this.recordtime.Name = "recordtime";
             this.recordtime.Size = new System.Drawing.Size(105, 17);
             this.recordtime.Text = "record time";
@@ -191,11 +191,13 @@ namespace World_Hello
             // 
             // stopplayback
             // 
-            this.stopplayback.Location = new System.Drawing.Point(30, 186);
+            this.stopplayback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.stopplayback.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.stopplayback.Location = new System.Drawing.Point(79, 74);
             this.stopplayback.Name = "stopplayback";
-            this.stopplayback.Size = new System.Drawing.Size(73, 21);
+            this.stopplayback.Size = new System.Drawing.Size(158, 31);
             this.stopplayback.TabIndex = 29;
-            this.stopplayback.Text = "stop playback";
+            this.stopplayback.Text = "Stop Playback";
             this.stopplayback.Click += new System.EventHandler(this.stopplayback_Click);
             // 
             // Interface
