@@ -4,7 +4,7 @@ using System.Text;
 using System.IO;
 
 //code double ups are cool huh.
-namespace mmoments
+namespace World_Hello
 {
     class wavesimple
     {
