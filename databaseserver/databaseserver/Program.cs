@@ -122,6 +122,10 @@ namespace databaseserver
                 {
                     songs.Add(savedsong);
                 }
+#if VERBOSE
+                Console.WriteLine("testing : {0} by {1} match with {2}", savedsong.title, savedsong.artest, c.ToString());
+
+#endif
             }
 #else
             DataTable dt = db.GetData("SELECT * FROM songs");
@@ -152,7 +156,13 @@ namespace databaseserver
             if ((ans == "y") || (ans == "yes"))
             {
                 string fileurl = getans("file url"); // might handle true cascaded directories.
-                string fingerprint = calcfinger.generate(fileurl);
+                string fingerprint;
+                try
+                {
+                    fingerprint = calcfinger.generate(fileurl);
+                }
+                catch (NullReferenceException) { Console.WriteLine("file not found"); return; }
+
                 string artest = getans("artest?");
                 string title = getans("song title?");
                 //could get more info, but not important now.
