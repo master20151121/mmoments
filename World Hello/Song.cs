@@ -9,7 +9,7 @@ namespace World_Hello
 {
     [XmlRoot("songList")]
     public class SongList : System.Collections.ObjectModel.Collection<Song>
-    {
+    {//add doesnt seem to work.
         private ArrayList listOfSongs;
 
         public SongList()

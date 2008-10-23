@@ -60,7 +60,7 @@ namespace World_Hello
 
         private void menuItem2_Click(object sender, EventArgs e) //exit
         {
-            instancelist.Add(currentinstance);
+            //instancelist.Add(currentinstance);//bad
             csvmanager.save(instancelist);
             Application.Exit();
         }
@@ -208,6 +208,11 @@ namespace World_Hello
         private void stopplayback_Click(object sender, EventArgs e)
         {
             waveplayer.stop();
+        }
+
+        private void showmatch_btn_Click(object sender, EventArgs e)
+        {
+            currentinstance.showmatches(this);
         }
     }
 }

@@ -1,3 +1,4 @@
+#define VERBOSE
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -46,9 +47,11 @@ namespace World_Hello
             {
                 matches = con.SendFingerprint(fingerprint);
 
-                UI_SongList uiSongList = new UI_SongList(theint);
-                uiSongList.SL = matches;
-                uiSongList.Show();
+                this.showmatches(theint);
+
+                //UI_SongList uiSongList = new UI_SongList(theint);
+                //uiSongList.SL = matches;
+                //uiSongList.Show();
                 return true;
             }
             else
@@ -59,10 +62,23 @@ namespace World_Hello
             }
         }
 
+        public void showmatches(Interface theint)
+        {
+            UI_SongList uisl = new UI_SongList(theint);
+            MessageBox.Show("num songs " + matches.Count.ToString());
+            uisl.SL = this.matches;
+            uisl.Show();
+            
+        }
+
         public void delete()
         {
-            FileInfo fi = new FileInfo(recordedwav);
-            fi.Delete();
+            try
+            {
+                FileInfo fi = new FileInfo(recordedwav);
+                fi.Delete();
+            }
+            catch (IOException) { MessageBox.Show("IOException deleting recording at " + this.getrecordtime().ToString()); }
             //will need to be removed from instancelist.
         }
 
@@ -85,6 +101,9 @@ namespace World_Hello
 
         public static void save(List<songinstance> list)
         {
+#if VERBOSE
+            MessageBox.Show("csv save: list<songinscance>.count "+list.Count);
+#endif
             string fileName = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
             fileName = Path.GetDirectoryName(fileName);
             fileName = Path.Combine(fileName, SAVEFILE);
@@ -96,11 +115,15 @@ namespace World_Hello
                 foreach (songinstance si in list)
                 {
                     string line = si.getwavurl() + "," + si.getrecordtime().ToString() + "," + si.getfingerprint() + ",";
+//#if VERBOSE
+//                    MessageBox.Show("csv saving: "+line);
+//#endif
+
                     SongList silist = si.getsonglist();
                     for (int i = 0; i < silist.Count; i++)
                     {
-                        line += silist[i].artist + "," + silist[i].title + ",";
-                    }
+                        line += silist[i].artist + "," + silist[i].title + ","+silist[i].match.ToString()+",";
+                    }//untested.
                     tw.WriteLine(line);
                 }
                 tw.Close();
@@ -124,6 +147,10 @@ namespace World_Hello
                 string value;
                 while ((line = tr.ReadLine()) != null)
                 {
+
+#if VERBOSE
+                    MessageBox.Show("csv loader: "+ line);
+#endif
                     songinstance si = new songinstance();
 
                     value = line.Substring(0, line.IndexOf(","));
@@ -136,12 +163,16 @@ namespace World_Hello
 
                     value = line.Substring(0, line.IndexOf(","));
                     line = line.Substring(line.IndexOf(",") + 1);
-                    si.setfingerprint(value);
+                    si.setfingerprint(value); //this will not handle error.
 
                     SongList sl = new SongList();
                     int cindex;
                     while ((cindex = line.IndexOf(",")) != -1) //-1?
                     {
+#if VERBOSE
+                        MessageBox.Show(line);
+#endif                       
+                        
                         Song s = new Song();
                         value = line.Substring(0, line.IndexOf(","));
                         line = line.Substring(line.IndexOf(",")+1);
@@ -150,13 +181,29 @@ namespace World_Hello
                         line = line.Substring(line.IndexOf(",") + 1);
                         s.title = value;
                         value = line.Substring(0, line.IndexOf(","));
+#if VERBOSE
+                        MessageBox.Show(line);
+#endif
                         line = line.Substring(line.IndexOf(",") + 1);
                         s.match = Int32.Parse(value);
-                        sl.Add(s);
-                    }
-                    returnlist.Add(si);
+#if VERBOSE
+                        MessageBox.Show("csv adding match");
+#endif
 
+                        //sl.Add(s); //add doesnt work.
+                        sl.Insert(0, s);
+                    } //this will not handle error. and is untested.
+                    si.setmatches(sl);
+#if VERBOSE
+                    MessageBox.Show("csv matches count :"+sl.Count.ToString());
+#endif
+
+                    returnlist.Add(si);
+                   
                 }
+#if VERBOSE
+                MessageBox.Show("csv loader: list<instance>.lengith " + returnlist.Count.ToString());
+#endif
                 return returnlist;
             }
             catch (FileNotFoundException) { return returnlist; }//returnlist is empty, that should be fine.
