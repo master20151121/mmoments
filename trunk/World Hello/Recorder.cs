@@ -117,6 +117,7 @@ namespace World_Hello
                 if (Wave.MMSYSERR.NOERROR != wi.Save(fileName))
                 {
                     System.Windows.Forms.MessageBox.Show("ERROR: FAILED TO SAVE");
+                    return "fail";
                     //ERROR: FAILED TO SAVE
                     //I think when this happens it leaves a file with size in the order of the UPPERLIMMIT.
                 }

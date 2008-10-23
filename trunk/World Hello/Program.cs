@@ -38,7 +38,8 @@ namespace World_Hello
         public void stoprecord()
         {
             recordedwav= DynamicRecord.stop();
-            fingerprint = calcfinger.generate(recordedwav);
+            if (recordedwav != "fail")
+                fingerprint = calcfinger.generate(recordedwav);
         }
         public bool askserver(Interface theint, string serverip) // return true on succeed, return false on fail.
         {
