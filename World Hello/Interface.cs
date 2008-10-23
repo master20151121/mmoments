@@ -209,10 +209,5 @@ namespace World_Hello
         {
             waveplayer.stop();
         }
-
-        private void showmatch_btn_Click(object sender, EventArgs e)
-        {
-            currentinstance.showmatches(this);
-        }
     }
 }

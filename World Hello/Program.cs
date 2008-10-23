@@ -58,14 +58,19 @@ namespace World_Hello
             {
                 System.Windows.Forms.MessageBox.Show("failed to connect");//should be replaced with statusbar.
                 //how to change status bar here?
+                if (this.matches.Count >0)
+                    this.showmatches(theint); //do this in both cases, one button.
                 return false;
             }
+            
         }
 
         public void showmatches(Interface theint)
         {
             UI_SongList uisl = new UI_SongList(theint);
+#if VERBOSE
             MessageBox.Show("num songs " + matches.Count.ToString());
+#endif
             uisl.SL = this.matches;
             uisl.Show();
             
@@ -148,9 +153,9 @@ namespace World_Hello
                 while ((line = tr.ReadLine()) != null)
                 {
 
-#if VERBOSE
-                    MessageBox.Show("csv loader: "+ line);
-#endif
+//#if VERBOSE
+//                    MessageBox.Show("csv loader: "+ line);
+//#endif
                     songinstance si = new songinstance();
 
                     value = line.Substring(0, line.IndexOf(","));
@@ -169,9 +174,9 @@ namespace World_Hello
                     int cindex;
                     while ((cindex = line.IndexOf(",")) != -1) //-1?
                     {
-#if VERBOSE
-                        MessageBox.Show(line);
-#endif                       
+//#if VERBOSE
+//                        MessageBox.Show(line);
+//#endif                       
                         
                         Song s = new Song();
                         value = line.Substring(0, line.IndexOf(","));
@@ -181,14 +186,14 @@ namespace World_Hello
                         line = line.Substring(line.IndexOf(",") + 1);
                         s.title = value;
                         value = line.Substring(0, line.IndexOf(","));
-#if VERBOSE
-                        MessageBox.Show(line);
-#endif
+//#if VERBOSE
+//                        MessageBox.Show(line);
+//#endif
                         line = line.Substring(line.IndexOf(",") + 1);
                         s.match = Int32.Parse(value);
-#if VERBOSE
-                        MessageBox.Show("csv adding match");
-#endif
+//#if VERBOSE
+//                        MessageBox.Show("csv adding match");
+//#endif
 
                         //sl.Add(s); //add doesnt work.
                         sl.Insert(0, s);
