@@ -204,5 +204,10 @@ namespace World_Hello
             recordtime.Text = currentinstance.getrecordtime().Hour + ":" + currentinstance.getrecordtime().Minute + " " + currentinstance.getrecordtime().DayOfWeek;
             }
         }
+
+        private void stopplayback_Click(object sender, EventArgs e)
+        {
+            waveplayer.stop();
+        }
     }
 }

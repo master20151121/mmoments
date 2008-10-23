@@ -46,6 +46,7 @@ namespace World_Hello
             this.previousinstance = new System.Windows.Forms.Button();
             this.nextinstance = new System.Windows.Forms.Button();
             this.instancedelete = new System.Windows.Forms.Button();
+            this.stopplayback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UI_recordBtn
@@ -101,9 +102,9 @@ namespace World_Hello
             // 
             // UI_Statusbar
             // 
-            this.UI_Statusbar.Location = new System.Drawing.Point(0, 242);
+            this.UI_Statusbar.Location = new System.Drawing.Point(0, 246);
             this.UI_Statusbar.Name = "UI_Statusbar";
-            this.UI_Statusbar.Size = new System.Drawing.Size(240, 26);
+            this.UI_Statusbar.Size = new System.Drawing.Size(240, 22);
             this.UI_Statusbar.Visible = false;
             // 
             // playrec
@@ -188,6 +189,15 @@ namespace World_Hello
             this.instancedelete.Text = "Delete";
             this.instancedelete.Click += new System.EventHandler(this.instancedelete_Click);
             // 
+            // stopplayback
+            // 
+            this.stopplayback.Location = new System.Drawing.Point(30, 186);
+            this.stopplayback.Name = "stopplayback";
+            this.stopplayback.Size = new System.Drawing.Size(73, 21);
+            this.stopplayback.TabIndex = 29;
+            this.stopplayback.Text = "stop playback";
+            this.stopplayback.Click += new System.EventHandler(this.stopplayback_Click);
+            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -195,6 +205,7 @@ namespace World_Hello
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(240, 268);
+            this.Controls.Add(this.stopplayback);
             this.Controls.Add(this.instancedelete);
             this.Controls.Add(this.nextinstance);
             this.Controls.Add(this.previousinstance);
@@ -235,6 +246,7 @@ namespace World_Hello
         private System.Windows.Forms.Button previousinstance;
         private System.Windows.Forms.Button nextinstance;
         private System.Windows.Forms.Button instancedelete;
+        private System.Windows.Forms.Button stopplayback;
     }
 }
 
