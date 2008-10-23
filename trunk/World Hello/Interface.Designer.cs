@@ -47,7 +47,6 @@ namespace World_Hello
             this.nextinstance = new System.Windows.Forms.Button();
             this.instancedelete = new System.Windows.Forms.Button();
             this.stopplayback = new System.Windows.Forms.Button();
-            this.showmatch_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UI_recordBtn
@@ -199,15 +198,6 @@ namespace World_Hello
             this.stopplayback.Text = "stop playback";
             this.stopplayback.Click += new System.EventHandler(this.stopplayback_Click);
             // 
-            // showmatch_btn
-            // 
-            this.showmatch_btn.Location = new System.Drawing.Point(128, 175);
-            this.showmatch_btn.Name = "showmatch_btn";
-            this.showmatch_btn.Size = new System.Drawing.Size(83, 31);
-            this.showmatch_btn.TabIndex = 34;
-            this.showmatch_btn.Text = "showmatches";
-            this.showmatch_btn.Click += new System.EventHandler(this.showmatch_btn_Click);
-            // 
             // Interface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -215,7 +205,6 @@ namespace World_Hello
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(240, 268);
-            this.Controls.Add(this.showmatch_btn);
             this.Controls.Add(this.stopplayback);
             this.Controls.Add(this.instancedelete);
             this.Controls.Add(this.nextinstance);
@@ -258,7 +247,6 @@ namespace World_Hello
         private System.Windows.Forms.Button nextinstance;
         private System.Windows.Forms.Button instancedelete;
         private System.Windows.Forms.Button stopplayback;
-        private System.Windows.Forms.Button showmatch_btn;
     }
 }
 
