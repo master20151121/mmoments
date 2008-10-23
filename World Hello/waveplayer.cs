@@ -37,24 +37,10 @@ namespace World_Hello
             //System.Windows.Forms.MessageBox.Show("starting play");
             WCE_PlaySound(FILENAME, IntPtr.Zero, (int)(Flags.SND_ASYNC | Flags.SND_FILENAME));
         }
-
-#if WANTBROKENSTUFF
-        public static void stop() //doesnt work.
+        public static void stop()
         {
-
-            try
-            {
-                runningplayer.Abort();                
-            }
-            catch (ThreadAbortException)
-            {
-                System.Windows.Forms.MessageBox.Show("thread abort exception");
-                //i expect this,
-                return;
-            }
+            WCE_PlaySound(null, IntPtr.Zero, 0);
         }
-#endif
-
     }
 }
 
